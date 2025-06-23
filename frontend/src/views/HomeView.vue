@@ -15,6 +15,14 @@
       <q-expansion-item v-model="cancellationPolicyExpanded" label="Cancellation Policy">
         <q-card>
           <q-card-section>
+            <q-btn
+              class="q-mb-sm"
+              label="use template"
+              color="primary"
+              dense
+              outline
+              @click="handleCancellationPolicyTemp"
+            />
             <q-editor v-model="cancellationPolicy" :toolbar="toolBarConfigf" />
           </q-card-section>
         </q-card>
@@ -23,6 +31,14 @@
       <q-expansion-item v-model="priceIncludesExpanded" label="Price Includes">
         <q-card>
           <q-card-section>
+            <q-btn
+              class="q-mb-sm"
+              label="AUTO UPDATE"
+              color="primary"
+              dense
+              outline
+              @click="handlePriceIncludesAutoUpdate"
+            />
             <q-editor v-model="priceIncludes" :toolbar="toolBarConfigf" />
           </q-card-section>
         </q-card>
@@ -101,6 +117,28 @@ const getPageHtml = (url) => {
       console.error('Error fetching page:', error)
     })
 }
+const handleCancellationPolicyTemp = () => {
+  cancellationPolicy.value = `
+  <div id="cancellationPolicy" class="p-2" style="margin-left:20px">
+    <ol>
+      <li>Cancellation notification received 30 days prior to departure date: 0% of total cost of holiday will be charged.</li>
+      <li>Cancellation notification received 14 to 29 days prior to departure date: 50% of total cost of holiday will be charged.</li>
+      <li>Cancellation notification received 7 to 13 days prior to departure date: 80% of total cost of holiday will be charged.</li>
+      <li>Cancellation notification received 6 to 0 days prior to: 100% of total cost of holiday will be charged.</li>
+    </ol>
+  </div>`
+}
+const handlePriceIncludesAutoUpdate = () => {
+  const root = parse(priceIncludes.value)
+  const list = root.querySelectorAll('li')
+  //修改第五条
+  list[4].set_content('Simple English speaking driver.')
+  //删除最后一条
+  if (list[6] && list[6].parentNode) {
+    list[6].parentNode.removeChild(list[6])
+  }
+  priceIncludes.value = root.toString()
+}
 const onSubmit = () => {
   if (url.value) {
     getPageHtml(url.value)
@@ -122,9 +160,15 @@ const handleSave = () => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      filename: 'test.html',
+      filename: url.value,
       content: root.toString(),
     }),
+  }).then((response) => {
+    if (response.ok) {
+      alert('File saved successfully')
+    } else {
+      alert('Error saving file')
+    }
   })
 }
 </script>

@@ -16,7 +16,6 @@ app.get('/api/file', (req, res) => {
     const baseDir = '/home/GoFindOrient/wwwroot/';
     const safePath = path.normalize(url).replace(/^(\.\.[\/\\])+/, '');
     const filePath = path.join(baseDir, safePath);
-
     // 确保文件在指定目录下
     if (!filePath.startsWith(baseDir)) {
         return res.status(403).json({ error: 'Access denied' });
@@ -45,7 +44,9 @@ app.post('/api/generate-html', express.json(), (req, res) => {
         return res.status(400).json({ error: 'Filename must end with .html' });
     }
 
-    const filePath = path.join(__dirname, safeFilename);
+    // 指定写入目录
+    const baseDir = '/home/GoFindOrient/wwwroot/';
+    const filePath = path.join(baseDir, safeFilename);
 
     // 允许跨域
     res.setHeader('Access-Control-Allow-Origin', '*');
