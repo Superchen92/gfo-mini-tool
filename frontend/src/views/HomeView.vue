@@ -97,7 +97,7 @@ const service = ref('')
 const serviceExpanded = ref(false)
 
 const getPageHtml = (url) => {
-  fetch('/api/file?url=' + url)
+  fetch('/minitoolapi/file?url=' + url)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok')
@@ -154,7 +154,7 @@ const handleSave = () => {
   root.querySelector('#tourPrice').replaceWith(tourPrice.value)
   root.querySelector('.customer-service-card').replaceWith(service.value)
 
-  fetch('/api/generate-html', {
+  fetch('/minitoolapi/generate-html', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

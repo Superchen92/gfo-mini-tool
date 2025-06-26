@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 // GET /file?url=filename
-app.get('/api/file', (req, res) => {
+app.get('/minitoolapi/file', (req, res) => {
     const { url } = req.query;
     if (!url) {
         return res.status(400).json({ error: 'Missing url parameter' });
@@ -32,21 +32,27 @@ app.get('/api/file', (req, res) => {
 });
 
 // 生成HTML文件的API
-app.post('/api/generate-html', express.json(), (req, res) => {
+app.post('/minitoolapi/generate-html', express.json(), (req, res) => {
     const { filename, content } = req.body;
     if (!filename || !content) {
         return res.status(400).json({ error: 'Missing filename or content' });
     }
 
     // 只允许.html后缀，防止路径穿越
-    const safeFilename = path.basename(filename).replace(/[^a-zA-Z0-9_\-\.]/g, '');
-    if (!safeFilename.endsWith('.html')) {
-        return res.status(400).json({ error: 'Filename must end with .html' });
-    }
+    // const safeFilename = path.basename(filename).replace(/[^a-zA-Z0-9_\-\.]/g, '');
+    // if (!safeFilename.endsWith('.html')) {
+    //     return res.status(400).json({ error: 'Filename must end with .html' });
+    // }
 
     // 指定写入目录
     const baseDir = '/home/GoFindOrient/wwwroot/';
-    const filePath = path.join(baseDir, safeFilename);
+    const safePath = path.normalize(filename).replace(/^(\.\.[\/\\])+/, '');
+    const filePath = path.join(baseDir, safePath);
+
+    // 确保文件写入在指定目录下
+    if (!filePath.startsWith(path.resolve(baseDir))) {
+        return res.status(403).json({ error: 'Access denied' });
+    }
 
     // 允许跨域
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -54,7 +60,7 @@ app.post('/api/generate-html', express.json(), (req, res) => {
         if (err) {
             return res.status(500).json({ error: 'Failed to write file' });
         }
-        res.json({ message: 'HTML file generated successfully', file: safeFilename });
+        res.json({ message: 'HTML file generated successfully', file: filePath });
     });
 });
 
