@@ -80,9 +80,10 @@
 
 <script setup>
 import { parse } from 'node-html-parser'
+import { Loading } from 'quasar'
 import { ref } from 'vue'
 
-const url = ref('/index.html')
+const url = ref('')
 const searchPage = ref()
 const toolBarConfigf = ref([['viewsource']])
 const cancellationPolicy = ref('')
@@ -97,6 +98,7 @@ const service = ref('')
 const serviceExpanded = ref(false)
 
 const getPageHtml = (url) => {
+  Loading.show()
   fetch('/minitoolapi/file?url=' + url)
     .then((response) => {
       if (!response.ok) {
@@ -107,15 +109,26 @@ const getPageHtml = (url) => {
     .then((html) => {
       searchPage.value = html
       const root = parse(html)
-      cancellationPolicy.value = root.querySelector('#cancellationPolicy').toString()
-      priceIncludes.value = root.querySelector('#priceIncludes').toString()
-      pricePayment.value = root.querySelector('#pricePayment').toString()
-      tourPrice.value = root.querySelector('#tourPrice').toString()
-      service.value = root.querySelector('.customer-service-card').toString()
+      cancellationPolicy.value = root.querySelector('#cancellationPolicy')
+        ? root.querySelector('#cancellationPolicy').toString()
+        : ''
+      priceIncludes.value = root.querySelector('#priceIncludes')
+        ? root.querySelector('#priceIncludes').toString()
+        : ''
+      pricePayment.value = root.querySelector('#pricePayment')
+        ? root.querySelector('#pricePayment').toString()
+        : ''
+      tourPrice.value = root.querySelector('#tourPrice')
+        ? root.querySelector('#tourPrice').toString()
+        : ''
+      service.value = root.querySelector('.customer-service-card')
+        ? root.querySelector('.customer-service-card').toString()
+        : ''
     })
     .catch((error) => {
       console.error('Error fetching page:', error)
     })
+    .finally(() => Loading.hide())
 }
 const handleCancellationPolicyTemp = () => {
   cancellationPolicy.value = `
