@@ -161,11 +161,21 @@ const onSubmit = () => {
 }
 const handleSave = () => {
   const root = parse(searchPage.value)
-  root.querySelector('#cancellationPolicy').replaceWith(cancellationPolicy.value)
-  root.querySelector('#priceIncludes').replaceWith(priceIncludes.value)
-  root.querySelector('#pricePayment').replaceWith(pricePayment.value)
-  root.querySelector('#tourPrice').replaceWith(tourPrice.value)
-  root.querySelector('.customer-service-card').replaceWith(service.value)
+  root.querySelector('#cancellationPolicy')
+    ? root.querySelector('#cancellationPolicy').replaceWith(cancellationPolicy.value)
+    : ''
+  root.querySelector('#priceIncludes')
+    ? root.querySelector('#priceIncludes').replaceWith(priceIncludes.value)
+    : ''
+  root.querySelector('#pricePayment')
+    ? root.querySelector('#pricePayment').replaceWith(pricePayment.value)
+    : ''
+  root.querySelector('#tourPrice')
+    ? root.querySelector('#tourPrice').replaceWith(tourPrice.value)
+    : ''
+  root.querySelector('.customer-service-card')
+    ? root.querySelector('.customer-service-card').replaceWith(service.value)
+    : ''
 
   fetch('/minitoolapi/generate-html', {
     method: 'POST',
