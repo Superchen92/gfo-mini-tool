@@ -137,7 +137,7 @@ const handleCancellationPolicyTemp = () => {
       <li>Cancellation notification received <strong>30 days</strong> prior to departure date: <strong>0%</strong> of total cost of holiday will be charged.</li>
       <li>Cancellation notification received <strong>14 to 29 days</strong> prior to departure date: <strong>50%</strong> of total cost of holiday will be charged.</li>
       <li>Cancellation notification received <strong>7 to 13 days</strong> prior to departure date: <strong>80%</strong> of total cost of holiday will be charged.</li>
-      <li>Cancellation notification received <strong>6 to 0 days</strong> prior to: <strong>100%/strong> of total cost of holiday will be charged.</li>
+      <li>Cancellation notification received <strong>6 to 0 days</strong> prior to: <strong>100%</strong> of total cost of holiday will be charged.</li>
     </ol>
   </div>`
 }
