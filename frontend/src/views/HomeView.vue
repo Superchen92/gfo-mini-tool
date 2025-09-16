@@ -145,7 +145,7 @@ const handlePriceIncludesAutoUpdate = () => {
   const root = parse(priceIncludes.value)
   const list = root.querySelectorAll('li')
   //修改第五条
-  list[4].set_content('Simple English speaking driver.')
+  list[4].set_content('<b>Simple English speaking driver.</b>')
   //删除最后一条
   if (list[6] && list[6].parentNode) {
     list[6].parentNode.removeChild(list[6])
