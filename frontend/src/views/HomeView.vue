@@ -23,7 +23,7 @@
               outline
               @click="handleCancellationPolicyTemp"
             />
-            <q-editor v-model="cancellationPolicy" :toolbar="toolBarConfigf" />
+            <q-editor v-model="htmlElement.cancellationPolicy" :toolbar="toolBarConfigf" />
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -39,7 +39,7 @@
               outline
               @click="handlePriceIncludesAutoUpdate"
             />
-            <q-editor v-model="priceIncludes" :toolbar="toolBarConfigf" />
+            <q-editor v-model="htmlElement.priceIncludes" :toolbar="toolBarConfigf" />
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -47,7 +47,7 @@
       <q-expansion-item v-model="pricePaymentExpanded" label="Price Payment">
         <q-card>
           <q-card-section>
-            <q-editor v-model="pricePayment" :toolbar="toolBarConfigf" />
+            <q-editor v-model="htmlElement.pricePayment" :toolbar="toolBarConfigf" />
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -55,7 +55,7 @@
       <q-expansion-item v-model="tourPriceExpanded" label="Tour Price">
         <q-card>
           <q-card-section>
-            <q-editor v-model="tourPrice" :toolbar="toolBarConfigf" />
+            <q-editor v-model="htmlElement.tourPrice" :toolbar="toolBarConfigf" />
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -63,7 +63,7 @@
       <q-expansion-item v-model="serviceExpanded" label="Sale Information">
         <q-card>
           <q-card-section>
-            <q-editor v-model="service" :toolbar="toolBarConfigf" />
+            <q-editor v-model="htmlElement.service" :toolbar="toolBarConfigf" />
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -80,45 +80,43 @@
 
 <script setup>
 import { parse } from 'node-html-parser'
-import { ref } from 'vue'
+import { useQuasar } from 'quasar'
+import { reactive, ref } from 'vue'
 
-const url = ref('/index.html')
-const searchPage = ref()
+const $q = useQuasar()
+const url = ref('/Itinerary/GF20250925Laura-CB/quotation202510026006.html')
 const toolBarConfigf = ref([['viewsource']])
-const cancellationPolicy = ref('')
 const cancellationPolicyExpanded = ref(true)
-const priceIncludes = ref('')
 const priceIncludesExpanded = ref(false)
-const pricePayment = ref('')
 const pricePaymentExpanded = ref(false)
-const tourPrice = ref('')
 const tourPriceExpanded = ref(false)
-const service = ref('')
 const serviceExpanded = ref(false)
+const htmlElement = reactive({
+  h1: '',
+  priceIncludes: '',
+  accordion: '',
+  cancellationPolicy: '',
+  detailUl: '',
+  pricePayment: '',
+  service: '',
+  title: '',
+  tourPrice: '',
+})
 
 const getPageHtml = (url) => {
-  fetch('/api/file?url=' + url)
+  fetch('/api/get-files?url=' + url)
     .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok')
-      }
-      return response.text()
+      return response.json()
     })
-    .then((html) => {
-      searchPage.value = html
-      const root = parse(html)
-      cancellationPolicy.value = root.querySelector('#cancellationPolicy').toString()
-      priceIncludes.value = root.querySelector('#priceIncludes').toString()
-      pricePayment.value = root.querySelector('#pricePayment').toString()
-      tourPrice.value = root.querySelector('#tourPrice').toString()
-      service.value = root.querySelector('.customer-service-card').toString()
+    .then((data) => {
+      Object.assign(htmlElement, data)
     })
     .catch((error) => {
       console.error('Error fetching page:', error)
     })
 }
 const handleCancellationPolicyTemp = () => {
-  cancellationPolicy.value = `
+  htmlElement.cancellationPolicy = `
   <div id="cancellationPolicy" class="p-2" style="margin-left:20px">
     <ol>
       <li>Cancellation notification received 30 days prior to departure date: 0% of total cost of holiday will be charged.</li>
@@ -129,7 +127,7 @@ const handleCancellationPolicyTemp = () => {
   </div>`
 }
 const handlePriceIncludesAutoUpdate = () => {
-  const root = parse(priceIncludes.value)
+  const root = parse(htmlElement.priceIncludes)
   const list = root.querySelectorAll('li')
   //修改第五条
   list[4].set_content('Simple English speaking driver.')
@@ -137,7 +135,7 @@ const handlePriceIncludesAutoUpdate = () => {
   if (list[6] && list[6].parentNode) {
     list[6].parentNode.removeChild(list[6])
   }
-  priceIncludes.value = root.toString()
+  htmlElement.priceIncludes = root.toString()
 }
 const onSubmit = () => {
   if (url.value) {
@@ -147,28 +145,23 @@ const onSubmit = () => {
   }
 }
 const handleSave = () => {
-  const root = parse(searchPage.value)
-  root.querySelector('#cancellationPolicy').replaceWith(cancellationPolicy.value)
-  root.querySelector('#priceIncludes').replaceWith(priceIncludes.value)
-  root.querySelector('#pricePayment').replaceWith(pricePayment.value)
-  root.querySelector('#tourPrice').replaceWith(tourPrice.value)
-  root.querySelector('.customer-service-card').replaceWith(service.value)
-
-  fetch('/api/generate-html', {
+  $q.loading.show()
+  fetch('/api/save-files', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      filename: url.value,
-      content: root.toString(),
-    }),
-  }).then((response) => {
-    if (response.ok) {
-      alert('File saved successfully')
-    } else {
-      alert('Error saving file')
-    }
+    body: JSON.stringify({ filename: url.value, ...htmlElement }),
   })
+    .then((response) => {
+      if (response.ok) {
+        alert('File saved successfully')
+      } else {
+        alert('Error saving file')
+      }
+    })
+    .finally(() => {
+      $q.loading.hide()
+    })
 }
 </script>

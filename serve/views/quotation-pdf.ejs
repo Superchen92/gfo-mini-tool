@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title><%= title %></title>
+    <style>
+      *{margin:0;padding:0;outline:none !important;}*,::after,::before{box-sizing:border-box;}h1,h2,h3,h4,h5,h6{font-weight:600;color:#333;letter-spacing:0.4px;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-o-transition:all 0.3s;-ms-transition:all 0.3s;transition:all 0.3s;}.h4,h4{font-size:1.5rem;}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{margin-bottom:0.5rem;font-family:inherit;font-weight:600;line-height:1.2;color:inherit;}.h5,h5{font-size:1.25rem;font-weight:600;}ul{margin:0;padding:0;}ul li{list-style-type:none;margin:0;padding:0;}body{font-family:'OpenSans',sans-serif;color:#545454;}.header-style-1{background-color:rgba(255,255,255,0.09);width:100%;}.top-bar{position:relative;}.bg-white{background-color:#fff !important;}header.header .container{padding:0 15px;position:relative;max-width:1260px;margin-right:auto;margin-left:auto;}.row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px;}.header .col-md-5{-ms-flex:0 0 41.666667%;flex:0 0 41.666667%;max-width:41.666667%;}#logo{display:block;width:320px;}.hero-area{position:relative;}.bg-img-top-tour{background-position:50% -2.66667px;background-color:#d2d6d8;display:block;}.img-height{display:block;max-width:100%;height:auto;}.hide-until{position:absolute;z-index:60;top:0;left:0;width:100%;padding:15px 0 65px;background:linear-gradient(rgba(0,0,0,0.3) 40px,transparent 100%);color:#fff;}.hero-area .hero-inner{text-align:center;position:absolute;z-index:109;top:35%;width:100%;padding:0 10%;}.welcome-text{font-size:calc(3rem + 18 * ((100vw - 320px) / 1280));}.hero-area .welcome-text h1{font-size:48px;font-family:Merriweather,serif;font-weight:500;color:#fff;text-shadow:0 0 20px #000;}.mt-4,.my-4{margin-top:1.5rem !important;}.badge-light{color:#212529;background-color:#f8f9fa;}.badge{display:inline-block;padding:0.25em 0.4em;font-size:75%;font-weight:700;line-height:1;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:0.25rem;}.pt-3,.py-3{padding-top:1rem !important;}.container{max-width:1170px;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;}.col-md-8{-ms-flex:0 0 80%;flex:0 0 80%;max-width:80%;box-sizing:border-box;}.card{position:relative;background-color:#fff;background-clip:border-box;overflow:hidden;margin-bottom:10px;}.mb-4,.my-4{margin-bottom:1.5rem !important;}.bg-white{background-color:#fff !important;}.p-2{padding:0.5rem !important;}.mb-2,.my-2{margin-bottom:0.5rem !important;}.flex-fill{-ms-flex:1 1 auto !important;flex:1 1 auto !important;}.h4,h4{font-size:1.5rem;}.fa,.fas{font-family:'Font Awesome 5 Free';font-weight:900;}.fa,.fas,.far,.fal,.fad,.fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;line-height:1;}.text-color-primary{color:#674786;}.text-color-primary{color:#674786;}.tip-box{width:100%;background-color:#fffbcd;padding:14px;font-size:14px;}.quotation-navbar{position:relative !important;z-index:100;overflow:hidden;}.detail-ul li{margin-bottom:15px;overflow:hidden;}.detail-ul li label{color:#333;font-weight:700;}.tip-box{width:100%;background-color:#fffbcd;padding:14px;font-size:14px;}.quotation-navbar{position:relative;z-index:100;overflow-x:auto;}.quotation-navbar ul{overflow:hidden;background:#766388;}.quotation-navbar ul li{float:left;width:25%;height:44px;line-height:44px;text-align:center;color:#fff;}.quotation-navbar ul li.active{background:#481b75;}.quotation-navbar ul li a{display:block;padding:10px;color:#fff !important;text-align:center;cursor:pointer;}#csdn-userTooltip a:link,a:focus,a:hover,a:visited{text-decoration:none !important;}.Itinerary-dot{position:relative;font-weight:500;overflow:hidden;}.Itinerary-dot .dot{display:inline-block;height:20px;width:20px;border-radius:50%;background-color:#674786;margin-right:10px;}.flex{display:flex;width:95%;}.card-header:first-child{border-radius:calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;}.card-header .iocdown{justify-content:flex-start;border-radius:0 !important;width:100%;font-weight:400;background:0 0 !important;color:var(--primary-color);font-size:16px;}.card-body{-ms-flex:1 1 auto;flex:1 1 auto;padding:1.25rem;line-height:25px;}.card-body p,.card-body-li li{margin-top:10px;}b,strong{font-weight:bolder;}.card-header{background-color:rgba(0,0,0,0.03);border-bottom:1px solid rgba(0,0,0,0.125);overflow:hidden;height:48px;line-height:48px;padding:0 20px;}.fl{float:left;}.card-header .day-index{display:inline-block;width:75px;color:#fff;background-color:#481b75;height:25px;line-height:25px;border-radius:12px;margin-top:10px;font-weight:bold;text-align:center;}.card-header .day-content{color:#481b75;margin:0 20px;width:calc(100% - 150px);}.card-header .day-content-destination{font-weight:bold;margin-left:15px;}.latest-hotel ul{overflow:hidden;}.latest-hotel ul li{float:left;line-height:25px;margin-right:10px;}.fa-star{width:16px;height:25px;background-image:url('data:image/png;base64,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');background-size:16px;background-position:center;background-repeat:no-repeat;}.breakfast{height:25px;margin:7px 0;padding-left:25px;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACkklEQVR4Xu1ZPUvDQBg2pZM6uIqrWLC/QBzUrUOH0iadBXVwce2oowiCk5Pg4KSm6eykP8BJRMFZXP0FbX2uELmm95Hm2uNC3kBpm/vI+zz3vB938RYKfnkFx79ABJACCs4AuUDBBUBBkFyAXKDgDJALZBFAq9W69zyvHY8dDAZBFEVh/N+0XWdTs9ncK5VKteFwuIW+6/g+4Z+vG8+3Z1KA7/sPmCSQEWDaLgOAeesAewnyN/g+yQWYOwGmK6wbLwIA8B3cPxe1WScAxjzCEJ8zph2GIbs3ukzbkyAx3xnunSpWduz5c1eAKUDdeB4A+jJXYy6nuuwSoJOwaXuMtNForJTL5W/8X1Kht+4CpgB142Ow6HeMgHetk7R1AnQSNm3nCLgBAQc6AtBu1wVMAerGK4KpjAsigM9CKRTz3yVrIWQlDQqUQgqQMEAuQC7AVaJzjwHIz7dIT/vTPEjVFxucWrfbfRKUwMlY40wM0NXmU3HT7/crvV7vS0DA2K5TNqn1QigIgh2s2stUKOWdf+C/a6JmZ7MAjPVg3Ce+KzMgoQMCLvJGANvy7sLoZ0MCPgC+KpsjuWdwxgW4UlV6SJGCmF/4/jZ8nylJeCVPlpwjgBmEVTrC1xWywmIK0KMuiB9vLHCJAh8/Ry4IYAbjkHIVh5SH+FnHZxOf5SQZAM329a8g6g6yj9KQ5bwLiEDA6CpAvifalL6ucAE36wDV6hEBM1SAiGhJbWB3M2RLAUSAgAFSwOQ7CUYTuYDV8wCKAQoGZpkGKQhSEJxkgLIAZYGJV/OUBqkOoEKIKkEqhZ0phdMcdbnUJ9PrcZcAmNpCBJgymPfxpIC8r6Cp/aQAUwbzPp4UkPcVNLWfFGDKYN7H/wGBXYZf0A3loQAAAABJRU5ErkJggg==');background-size:25px;background-position:left center;background-repeat:no-repeat;}.accommodation-table{width:100%;}table{border-collapse:collapse;}.accommodation-table td.city-cell{width:30%;background-color:#f1f1f1;}.accommodation-table td{padding:10px 12px;border-bottom:1px solid #dfdfdf;}.accommodation-table td{padding:10px 12px;border-bottom:1px solid #dfdfdf;}.text-left{text-align:left !important;}.table-wraper{overflow:hidden;border-radius:5px;}.guide-table{width:100%;}.bg-gray{background-color:#f1f1f1;}.weight{font-weight:bold;}.guide-table thead td{font-weight:700;}.guide-table td{padding:5px;text-align:center;min-height:35px;border:1px solid #481b75;}.text-color-primary{color:#674786;}.card-header.text-color-primary{font-weight:700;}.line-p{line-height:25px;}.mt10{margin-top:10px;}.no-wrap{white-space:nowrap;}.hotel-title{white-space:nowrap;}.line-20{line-height:22px;}
+    </style>
+  </head>
+  <body>
+    <header class='header header-style-1 fga_nav-should-fixed clearfix'>
+      <div class='top-bar bg-white'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-md-5'>
+              <img id='logo'
+                src='data:image/png;base64,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' />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class='hide-until-md bg-img-top-tour hero-area pt-0'>
+      <%- banner %>
+      <div class='hide-until'></div>
+      <div class='hero-inner hidden-xs'>
+        <div class='welcome-text'>
+          <h1><%= h1 %></h1>
+          <h4>
+            <span class='badge badge-light mt-4'>Your Reference No. <%= title %></span>
+          </h4>
+        </div>
+      </div>
+    </section>
+
+    <div class='page-wrapper'>
+      <section class='pt-3'>
+        <div class='container'>
+          <div class='section-content'>
+            <div class='row'>
+              <div class='col-md-8' style='margin: 0 auto'>
+                <div class='bg-white mb-4 card'>
+                  <div class='p-2'>
+                    <h5 class='mb-2'>Plan Overview</h5>
+                    <%- detailUl %>
+                  </div>
+                  <div class='tip-box'>
+                    Take your time to explore our proposal by clicking on the
+                    tabs. If you have any questions, suggestions, or want to
+                    make any changes, please don't hesitate to reach out. We're
+                    happy to answer your questions and provide any additional
+                    information you need.
+                  </div>
+                </div>
+
+                <div class='quotation-navbar mb-4'>
+                  <ul>
+                    <li class='active'>Itinerary</li>
+                    <li>Overnight</li>
+                    <li>Price</li>
+                    <li>Notes</li>
+                  </ul>
+                </div>
+
+                <div id='Itinerary' class='accordion-header mb-2'>
+                  <div class='h4 Itinerary-dot'>
+                    <span class='dot'></span>ITINERARY
+                  </div>
+                </div>
+                <%- accordionNoImg %>
+                <div id='Accommandation' class='h4 mb-2'>
+                  <div class='Itinerary-dot'>
+                    <span class='dot'></span>
+                    Overnight
+                  </div>
+                </div>
+                <p>
+                  * Click on the hotel name to visit more information and
+                  details
+                </p>
+                <%- overNight %>
+                <div id='Price' class='h4 mb-2'>
+                  <div class='Itinerary-dot'>
+                    <span class='dot'></span>Price &amp; Payment
+                  </div>
+                </div>
+                <%- pricePayment %>
+                <div class='card mb-4'>
+                  <div class='card-header text-color-primary'>Payment</div>
+                  <div class='p-2'>
+                    <p>We offer 2 payment methods to book this tour:</p>
+                    <div class='p-2' style='margin-left: 20px'>
+                      <ol class='line-20' style='margin-bottom: 0'>
+                        <li><strong>Credit Card secure online payment via PayPal.</strong></li>
+                        <li>
+                          <strong>Bank Transfer.</strong> 
+                          <p>
+                            Please write your tracking code on the transaction
+                            receipt issued by the bank and email it to us. This
+                            will allow our finance department to process your
+                            payment smoothly.
+                          </p>
+                          <p>
+                            Our bank account (for customers outside of China):
+                          </p>
+                          <p>
+                            Beneficiary: Shanghai China International Travel
+                            Service Ltd.
+                          </p>
+                          <p>
+                            Bank Name: BANK OF CHINA SHANGHAI BRANCH JING AN
+                            SUB-BRANCH
+                          </p>
+                          <p>Bank Swift: BKCHCNBJ300</p>
+                          <p>Account Number: 455959253403</p>
+                          <p>Bank Address: 1515 Nanjing Road (W.), Shanghai</p>
+                          <p>CNAPS Code: 104290005367</p>
+                        </li>
+                      </ol>
+                    </div>
+                    <div></div>
+                  </div>
+                </div>
+
+                <div id='Notes' class='h4 mb-2'>
+                  <div class='Itinerary-dot'>
+                    <span class='dot'></span>
+                    NOTES
+                  </div>
+                </div>
+
+                <div class='card mb-4'>
+                  <div class='card-header text-color-primary'>
+                    Notes For Price:
+                  </div>
+                  <div class='p-2 line-p' style='margin-left: 20px'>
+                    <ol class='line-20 card-body-li'>
+                      <li>
+                        This offer is valid until
+                        <strong>Wed, 1 Oct 2025</strong>. Prices may change
+                        after this date, so we recommend booking early to secure
+                        the best rate.
+                      </li>
+                      <li>
+                        <strong>This offer is valid for 3 adults traveling together</strong>. Any
+                        changes to the number of travelers may result in a price
+                        adjustment.
+                      </li>
+                      <li>
+                        <strong>No hotel rooms or flights have been booked yet</strong>. We will
+                        proceed with the bookings once the deposit payment is
+                        received. Room confirmations at your preferred hotels
+                        are subject to availability on the booking date. If
+                        rooms at the desired hotels are unavailable, we will
+                        secure bookings at an alternate or similar category
+                        hotel. Any applicable supplements or reductions will be
+                        required in such cases.
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class='card mb-4'>
+                  <div class='card-header text-color-primary'>
+                    Price Includes:
+                  </div>
+                  <%- priceIncludes %>
+                </div>
+
+                <div class='card mb-4'>
+                  <div class='card-header text-color-primary'>
+                    Price Excludes:
+                  </div>
+                  <%- priceExcludes %>
+                </div>
+
+                <div class='card mb-4 line-p'>
+                  <div class='card-header text-color-primary'>
+                    Cancellation Policy:
+                  </div>
+                  <p class='mt10 line-20' style='margin-left: 10px'>
+                    The cancellation fee will be determined based on the date we
+                    receive your written cancellation notice, following the
+                    Cancellation Policy outlined below:
+                  </p>
+
+                  <%- cancellationPolicy %>
+                  <p style='margin-left: 10px'>Note:</p>
+                  <div class='p-2 line-p' style='margin-left: 20px'>
+                    <ol class='line-20 card-body-li'>
+                      <li>
+                        If applicable, additional cancellation fees imposed by
+                        third-party service providers (including, but not
+                        limited to, banks, payment platforms, airlines, cruises,
+                        hotels, and railway companies) will be deducted from the refundable amount.
+                      </li>
+                      <li>
+                        Changing the traveler(s) is considered a cancellation
+                        and is subject to the policy outlined above.
+                      </li>
+                      <li>
+                        Once the tour has started, we cannot refund any amount
+                        for unused services (including, but not limited to,
+                        hotels, air or train tickets, meals, and admission fees)
+                        due to early departure, late arrival, or missed days on
+                        the tour.
+                      </li>
+                      <li>Special terms may apply in promotions.</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

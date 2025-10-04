@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title><%= seoTitle %></title>
+  <style>
+    *{margin:0;padding:0;outline:none !important;}*,::after,::before{box-sizing:border-box;}h1,h2,h3,h4,h5,h6{font-weight:600;color:#333;letter-spacing:0.4px;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-o-transition:all 0.3s;-ms-transition:all 0.3s;transition:all 0.3s;}.h4,h4{font-size:1.5rem;}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{margin-bottom:0.5rem;font-family:inherit;font-weight:600;line-height:1.2;color:inherit;}.h5,h5{font-size:1.25rem;font-weight:600;}ul{margin:0;padding:0;}ul li{list-style-type:none;margin:0;padding:0;}body{font-family:'OpenSans',sans-serif;color:#545454;}.header-style-1{background-color:rgba(255,255,255,0.09);width:100%;}.top-bar{position:relative;}.bg-white{background-color:#fff !important;}header.header .container{padding:0 15px;position:relative;max-width:1260px;margin-right:auto;margin-left:auto;}.row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px;}.header .col-md-5{-ms-flex:0 0 41.666667%;flex:0 0 41.666667%;max-width:41.666667%;}#logo{display:block;width:320px;}.hero-area{position:relative;}.bg-img-top-tour{background-position:50% -2.66667px;background-color:#d2d6d8;display:block;}.img-height{display:block;max-width:100%;height:auto;}.hide-until{position:absolute;z-index:60;top:0;left:0;width:100%;padding:15px 0 65px;background:linear-gradient(rgba(0,0,0,0.3) 40px,transparent 100%);color:#fff;}.hero-area .hero-inner{text-align:center;position:absolute;z-index:109;top:35%;width:100%;padding:0 10%;}.welcome-text{font-size:calc(3rem + 18 * ((100vw - 320px) / 1280));}.hero-area .welcome-text h1{font-size:48px;font-family:Merriweather,serif;font-weight:500;color:#fff;text-shadow:0 0 20px #000;}.mt-4,.my-4{margin-top:1.5rem !important;}.badge-light{color:#212529;background-color:#f8f9fa;}.badge{display:inline-block;padding:0.25em 0.4em;font-size:75%;font-weight:700;line-height:1;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:0.25rem;}.pt-3,.py-3{padding-top:1rem !important;}.container{max-width:1170px;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;}.col-md-8{-ms-flex:0 0 80%;flex:0 0 80%;max-width:80%;box-sizing:border-box;}.card{position:relative;background-color:#fff;background-clip:border-box;overflow:hidden;margin-bottom:10px;}.mb-4,.my-4{margin-bottom:1.5rem !important;}.bg-white{background-color:#fff !important;}.p-2{padding:0.5rem !important;}.mb-2,.my-2{margin-bottom:0.5rem !important;}.flex-fill{-ms-flex:1 1 auto !important;flex:1 1 auto !important;}.h4,h4{font-size:1.5rem;}.fa,.fas{font-family:'Font Awesome 5 Free';font-weight:900;}.fa,.fas,.far,.fal,.fad,.fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;line-height:1;}.text-color-primary{color:#674786;}.text-color-primary{color:#674786;}.tip-box{width:100%;background-color:#fffbcd;padding:14px;font-size:14px;}.quotation-navbar{position:relative !important;z-index:100;overflow:hidden;}.detail-ul li{margin-bottom:15px;overflow:hidden;}.detail-ul li label{color:#333;font-weight:700;}.tip-box{width:100%;background-color:#fffbcd;padding:14px;font-size:14px;}.quotation-navbar{position:relative;z-index:100;overflow-x:auto;}.quotation-navbar ul{overflow:hidden;background:#766388;}.quotation-navbar ul li{float:left;width:25%;height:44px;line-height:44px;text-align:center;color:#fff;}.quotation-navbar ul li.active{background:#481b75;}.quotation-navbar ul li a{display:block;padding:10px;color:#fff !important;text-align:center;cursor:pointer;}#csdn-userTooltip a:link,a:focus,a:hover,a:visited{text-decoration:none !important;}.Itinerary-dot{position:relative;font-weight:500;overflow:hidden;}.Itinerary-dot .dot{display:inline-block;height:20px;width:20px;border-radius:50%;background-color:#674786;margin-right:10px;}.flex{display:flex;width:95%;}.card-header:first-child{border-radius:calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;}.card-header .iocdown{justify-content:flex-start;border-radius:0 !important;width:100%;font-weight:400;background:0 0 !important;color:var(--primary-color);font-size:16px;}.card-body{-ms-flex:1 1 auto;flex:1 1 auto;padding:1.25rem;line-height:25px;}.card-body p,.card-body-li li{margin-top:10px;}b,strong{font-weight:bolder;}.card-header{background-color:rgba(0,0,0,0.03);border-bottom:1px solid rgba(0,0,0,0.125);overflow:hidden;height:48px;line-height:48px;padding:0 20px;}.fl{float:left;}.card-header .day-index{display:inline-block;width:75px;color:#fff;background-color:#481b75;height:25px;line-height:25px;border-radius:12px;margin-top:10px;font-weight:bold;text-align:center;}.card-header .day-content{color:#481b75;margin:0 20px;width:calc(100% - 150px);}.card-header .day-content-destination{font-weight:bold;margin-left:15px;}.latest-hotel ul{overflow:hidden;}.latest-hotel ul li{float:left;line-height:25px;margin-right:10px;}.fa-star{width:16px;height:25px;background-image:url('data:image/png;base64,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');background-size:16px;background-position:center;background-repeat:no-repeat;}.breakfast{height:25px;margin:7px 0;padding-left:25px;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACkklEQVR4Xu1ZPUvDQBg2pZM6uIqrWLC/QBzUrUOH0iadBXVwce2oowiCk5Pg4KSm6eykP8BJRMFZXP0FbX2uELmm95Hm2uNC3kBpm/vI+zz3vB938RYKfnkFx79ABJACCs4AuUDBBUBBkFyAXKDgDJALZBFAq9W69zyvHY8dDAZBFEVh/N+0XWdTs9ncK5VKteFwuIW+6/g+4Z+vG8+3Z1KA7/sPmCSQEWDaLgOAeesAewnyN/g+yQWYOwGmK6wbLwIA8B3cPxe1WScAxjzCEJ8zph2GIbs3ukzbkyAx3xnunSpWduz5c1eAKUDdeB4A+jJXYy6nuuwSoJOwaXuMtNForJTL5W/8X1Kht+4CpgB142Ow6HeMgHetk7R1AnQSNm3nCLgBAQc6AtBu1wVMAerGK4KpjAsigM9CKRTz3yVrIWQlDQqUQgqQMEAuQC7AVaJzjwHIz7dIT/vTPEjVFxucWrfbfRKUwMlY40wM0NXmU3HT7/crvV7vS0DA2K5TNqn1QigIgh2s2stUKOWdf+C/a6JmZ7MAjPVg3Ce+KzMgoQMCLvJGANvy7sLoZ0MCPgC+KpsjuWdwxgW4UlV6SJGCmF/4/jZ8nylJeCVPlpwjgBmEVTrC1xWywmIK0KMuiB9vLHCJAh8/Ry4IYAbjkHIVh5SH+FnHZxOf5SQZAM329a8g6g6yj9KQ5bwLiEDA6CpAvifalL6ucAE36wDV6hEBM1SAiGhJbWB3M2RLAUSAgAFSwOQ7CUYTuYDV8wCKAQoGZpkGKQhSEJxkgLIAZYGJV/OUBqkOoEKIKkEqhZ0phdMcdbnUJ9PrcZcAmNpCBJgymPfxpIC8r6Cp/aQAUwbzPp4UkPcVNLWfFGDKYN7H/wGBXYZf0A3loQAAAABJRU5ErkJggg==');background-size:25px;background-position:left center;background-repeat:no-repeat;}.accommodation-table{width:100%;}table{border-collapse:collapse;}.accommodation-table td.city-cell{width:30%;background-color:#f1f1f1;}.accommodation-table td{padding:10px 12px;border-bottom:1px solid #dfdfdf;}.accommodation-table td{padding:10px 12px;border-bottom:1px solid #dfdfdf;}.text-left{text-align:left !important;}.table-wraper{overflow:hidden;border-radius:5px;}.guide-table{width:100%;}.bg-gray{background-color:#f1f1f1;}.weight{font-weight:bold;}.guide-table thead td{font-weight:700;}.guide-table td{padding:5px;text-align:center;min-height:35px;border:1px solid #481b75;}.text-color-primary{color:#674786;}.card-header.text-color-primary{font-weight:700;}.line-p{line-height:25px;}.mt10{margin-top:10px;}.no-wrap{white-space:nowrap;}.hotel-title{white-space:nowrap;}.line-20{line-height:22px;}
+  </style>
+</head>
+
+<body>
+  <header class='header header-style-1 fga_nav-should-fixed clearfix'>
+    <div class='top-bar bg-white'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-5'>
+            <img id='logo'
+              src='data:image/png;base64,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' />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class='hide-until-md bg-img-top-tour hero-area pt-0'>
+    <img class='img-height' src='https://gofind.jjtravel.com/34371' />
+    <div class='hide-until'></div>
+    <div class='hero-inner hidden-xs'>
+      <div class='welcome-text'>
+        <h1>Tour Confirmation</h1>
+        <h1><%= seoTitle %></h1>
+        <h4>
+          <span class='badge badge-light mt-4'>Your Reference No.<%= seoTitle %></span>
+        </h4>
+      </div>
+    </div>
+  </section>
+  <article class='container'>
+    <section class='confirmation mt20'>
+      <p class='mb20 title-box'>
+        Thanks for choosing Go Find Orient! Your tour is officially confirmed, and we can't wait to be part of your
+        upcoming adventure.
+      </p>
+      <ol class='ml15 mt10'>
+        <li class='mt5'>
+          Please take a moment to review all the details below, especially your personal information and any
+          arrangements not made by Go Find Orient. Double-checking things like name spellings, flight numbers, and hotel
+          details helps ensure a smooth journey without any hiccups.
+        </li>
+        <li class='mt5'>
+          Before you travel, please check that your passport is valid for at least six months from your departure date
+          and that you've obtained all the visas you need for a smooth journey.
+        </li>
+        <li class='mt5'>
+          If your tour includes a Private Tour Escort, please look for the Go
+          Find Orient meeting sign or a sign with your name upon arrival at
+          the airport, train station, or dock.
+        </li>
+      </ol>
+      <p class='mt15'>
+        At Go Find Orient, your enjoyment and a memorable experience are our
+        main focus. We're happy to say that most of our tours run smoothly. If
+        you do encounter any issues, they can usually be resolved quickly and
+        easily. If you have a local guide or driver, speak to them first—they
+        are authorized to handle most situations. We prefer you address any
+        problems with them directly to ensure they don't spoil your holiday.
+      </p>
+    </section>
+    <section class='mt20 container-text'>
+      <div class='card-header text-color-primary'>
+        Confirmation Number: <%= seoTitle %>
+      </div>
+      <p>You may have a code before, e.g. <%= seoTitle %>, that's the
+        tracking code. Confirmation code is for the client who has already
+        booked the tour after payment.</p>
+    </section>
+    <section class='mt20 container-text'>
+      <div class='card-header text-color-primary'>
+        Contact Information of Travel Consultant:
+      </div>
+      <p>
+        Grace Ma is available 7/24 to assist with any problems which may arise
+        or to provide any information that you might need during your tour.
+      </p>
+      <p>Mobile & Whatsapp :+86 13977395009</p>
+    </section>
+    <section class='mt20'>
+      <div class='card-header text-color-primary'>
+        Dates and Transportation upon Arrival / Departure:
+      </div>
+      <div class='container-text'>
+        <p class='mt10 strong'>Starting Date: Sat, 18 Oct 2025</p>
+        <p class='strong'>Flight DL039 16:05 Arrive in ShangHai</p>
+        <p class='mt10 strong'>Ending Date: Tue, 4 Nov 2025</p>
+        <p class='strong'>Flight MF8432 17:55 Depart Chengdu</p>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header text-color-primary'>
+        Group Member Information:
+      </div>
+      <table class='guide-table mt10' cellspacing='0' cellpadding='0'>
+        <thead>
+          <tr>
+            <td>Full Name</td>
+            <td>Gender</td>
+            <td>Nationality</td>
+            <td>Passport No.</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Eliza Nourhian</td>
+            <td>Female</td>
+            <td>USA</td>
+            <td>A34824507</td>
+          </tr>
+          <tr>
+            <td>Faramarz Sedgh</td>
+            <td>Male</td>
+            <td>USA</td>
+            <td>A34824508</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class='mt20'>
+      <div class='card-header text-color-primary'>Price Includes:</div>
+      <%- priceIncludes %>
+    </section>
+    <section class='mt20'>
+      <div class='card-header text-color-primary'>Price Excludes:</div>
+      <%- priceExcludes %>
+    </section>
+    <section class='mt20' style='margin-top: 40px;'>
+      <div class='accordion-header mb-2'>
+        <div class='h4 Itinerary-dot'><span class='dot'></span>ITINERARY</div>
+      </div>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 1</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Sun 29-Mar-2026</div>
+          <div class='day-content-destination fl no-wrap city'>
+            Arrival - Tokyo
+          </div>
+        </div>
+      </div>
+      <div class='card-body container-text container-text'>
+        <p>Transfer via: - ShangHai, Flight, , DL039 (-16:05)</p>
+        <p>
+          <strong><u>Eliza &amp; Frank 2&nbsp;people</u>:</strong>
+        </p>
+        <p>
+          Arrive in Shanghai, where your guide will meet you at the airport
+          and assist with your transfer to the hotel. Check in and take some
+          time to unwind after your journey. You can relax at the hotel or
+          explore the nearby area at your own pace, preparing for the exciting
+          days ahead.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Own arrangement: The St. Regis Shanghai Jingan</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 2</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Sun 19-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>ShangHai</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>lunch</div>
+        <p>
+          <strong><u>2&nbsp;people</u>: </strong>
+        </p>
+        <p data-end='263' data-start='47'>
+          Visit <strong data-end='66' data-start='53'>Yu Garden</strong>, a
+          classical Chinese garden, to admire traditional pavilions, intricate
+          rockeries, and tranquil ponds. Explore the lively bazaar surrounding
+          the garden, filled with local snacks and handicrafts.
+        </p>
+        <p data-end='430' data-start='265'>
+          Walk along
+          <strong data-end='292' data-start='276'>Nanjing Road</strong>, one
+          of the busiest shopping streets in Shanghai, and soak up the vibrant
+          atmosphere with its shops, cafés, and bustling street scenes.
+        </p>
+        <p data-end='587' data-start='432'>
+          Stroll along the
+          <strong data-end='457' data-start='449'>Bund</strong>, taking in the
+          elegant colonial architecture on one side and the dazzling modern
+          skyline across the Huangpu River on the other.
+        </p>
+        <p data-end='725' data-start='589'>
+          Ascend the
+          <strong data-end='618' data-start='600'>Shanghai Tower</strong>,
+          China’s tallest building, and enjoy breathtaking panoramic views of
+          the city from its observation deck.
+        </p>
+        <p data-end='869' data-start='727'>
+          In the evening, experience a spectacular
+          <strong data-end='811' data-start='768'>Chinese acrobatic show with VIP seating</strong>, showcasing
+          incredible skill, artistry, and excitement.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Own arrangement: The St. Regis Shanghai Jingan</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 3</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Mon 20-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>ShangHai</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>lunch</div>
+        <p>
+          <strong><u>2&nbsp;people</u>: </strong>
+        </p>
+        <p>
+          Take a full-day trip to <strong>Zhujiajiao Water Town</strong>, a
+          charming ancient canal town near Shanghai.
+        </p>
+        <p>
+          Stroll along the quaint streets, cross historic stone bridges, and
+          visit traditional shops and tea houses.
+        </p>
+        <p>
+          Enjoy a <strong>boat ride</strong> along the canals to see the town
+          from the water and admire its unique riverside architecture.
+        </p>
+        <p>
+          After exploring, return to Shanghai in the late afternoon or
+          evening.
+        </p>
+        <p>
+          <strong>Dinner at the revolving restaurant Epicure on 45 at Radisson Blu
+            Hotel Shanghai New World</strong>, where you can enjoy a 360-degree skyline night view. (<strong>Note:
+          </strong>We will reserve a good&nbsp;table for you in advance;
+          <strong>à la carte menu, payment on your own</strong>.)
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Own arrangement: The St. Regis Shanghai Jingan</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 4</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Tue 21-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>
+            ShangHai - Guangzhou
+          </div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        Transfer via: ShangHai - Guangzhou, Flight, economy class, HU7432
+        (10:00-12:30)
+        <p>
+          Transfer to the airport in Shanghai for your flight to Guangzhou
+          (airfare included). No services provided in Guangzhou.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li>Own arrangement</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+        <div class='link-modal-list mt10'></div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 5</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Wed 22-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Guangzhou</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <p>Exhibition day.</p>
+        <div class='latest-hotel'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Own arrangement</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 6</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Thu 23-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Guangzhou</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <p>Exhibition day.</p>
+        <div class='latest-hotel'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Own arrangement</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 7</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Fri 24-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Guangzhou</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <p>Exhibition day.</p>
+        <div class='latest-hotel'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Own arrangement</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 8</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Sat 25-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>
+            Guangzhou - Zhangjiajie
+          </div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        Transfer via: Guangzhou - Zhangjiajie, Flight, economy class, CZ3381
+        (17:55-19:45)
+        <p>
+          Take your flight to Zhangjiajie on your own (airfare included). Upon
+          arrival, your guide will meet you at the airport and transfer you to
+          the hotel for a good rest.
+        </p>
+        <p data-end='341' data-start='76'>
+          This evening, you will meet up with Rosette and Lily, joining
+          together as a group of 6.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Wyndham Zhangjiajie Ruijingmanshan Hotel</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 9</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Sun 26-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Zhangjiajie</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p>
+          Visit the <strong>Avatar Hallelujah Mountain </strong>in Zhangjiajie
+          National Forest Park. This area inspired the floating mountains in
+          the movie Avatar, and you can enjoy breathtaking views of the unique
+          sandstone pillars and natural scenery.
+        </p>
+        <p>
+          Afterward, take a ride on the world-famous
+          <strong>Bailong Elevator</strong>, a glass lift built onto the side
+          of a cliff. As you ascend, enjoy stunning panoramic views of the
+          surrounding mountains and valleys.
+        </p>
+        <p data-end='656' data-start='467'>
+          In the evening, immerse yourself in local culture with the
+          <strong data-end='558' data-start='526'>Charming Xiangxi Performance</strong>, a spectacular show featuring
+          traditional music, dance, and folk
+          stories of the Xiangxi region.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Wyndham Zhangjiajie Ruijingmanshan Hotel</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 10</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Mon 27-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Zhangjiajie</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p data-end='183' data-start='0'>
+          Start the day with a visit to
+          <strong data-end='46' data-start='30'>Baofeng Lake</strong>,
+          surrounded by beautiful mountains and crystal-clear waters, where
+          you will enjoy a peaceful boat ride and admire the natural scenery.
+        </p>
+        <p data-end='465' data-start='185'>
+          In the afternoon, head to
+          <strong data-end='231' data-start='211'>Tianmen Mountain</strong>,
+          one of Zhangjiajie’s most famous landmarks. Explore the
+          <strong data-end='310' data-start='289'>Cliffside Walkway</strong>,
+          a path built along steep cliffs offering breathtaking views, and
+          test your courage on the thrilling
+          <strong data-end='429' data-start='412'>Glass Skywalk</strong>,
+          suspended high above the ground.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Wyndham Zhangjiajie Ruijingmanshan Hotel</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 11</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Tue 28-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>
+            Zhangjiajie - Furong Ancient Town - Fenghuang
+          </div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        Transfer via: Zhangjiajie - Furong Ancient Town, Private vehicle,
+        <p style='padding-left: 95px'>
+          Furong Ancient Town - Fenghuang, Private vehicle,
+        </p>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p data-start='0' data-end='315'>
+          Drive to
+          <strong data-start='9' data-end='32'>Furong Ancient Town</strong>,
+          which takes approximately 2 hours. Upon arrival, explore this
+          picturesque town known for its well-preserved historic architecture,
+          riverside scenery, and traditional culture. Wander through the
+          quaint streets, visit local shops, and take in the authentic
+          atmosphere of old China.
+        </p>
+        <p data-start='317' data-end='452' data-is-last-node='' data-is-only-node=''>
+          In the evening, drive to Fenghuang directly.
+          <strong>Overnight stay in Fenghuang</strong>.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Mount Villa by T Residence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 12</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Wed 29-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Fenghuang</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p data-start='0' data-end='217'>
+          Explore <strong>Fenghuang Ancient Town</strong>, a charming
+          riverside town known for its well-preserved traditional wooden
+          houses, stone-paved alleys, and beautiful night scenery with
+          lantern-lit bridges and reflections on the Tuo River. Stroll through
+          lively streets filled with local snacks, handicrafts, and folk
+          culture, and experience the unique blend of history and ethnic
+          minority traditions.
+        </p>
+        <p data-start='219' data-end='353' data-is-last-node='' data-is-only-node=''>
+          Stroll along the cobblestone streets, visit historic bridges and
+          temples, and enjoy the local atmosphere.
+          <strong>Overnight stay in Fenghuang</strong>.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Mount Villa by T Residence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 13</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Thu 30-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>
+            Fenghuang - Zhangjiajie - Chengdu
+          </div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        Transfer via: Fenghuang - Zhangjiajie, High-speed Train, first-class
+        seat, G6440 (09:55-10:54)
+        <p style='padding-left: 95px'>
+          Zhangjiajie - Chengdu, High-speed Train, first-class seat, G2322
+          (13:26-18:25)
+        </p>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p data-end='52' data-start='0'>
+          Take the high-speed train <strong>back to Zhangjiajie</strong>.
+        </p>
+        <p data-end='130' data-start='54'>
+          Upon arrival, collect your large luggage at the hotel and enjoy
+          lunch.
+        </p>
+        <p data-end='299' data-start='132' data-is-only-node='' data-is-last-node=''>
+          Afterward, take the <strong>high-speed train to Chengdu</strong>.
+          Upon arrival, your guide will meet you at the train station and
+          transfer you to your hotel for a
+          <strong data-end='298' data-start='282'>restful stay</strong>.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Pagoda Hotel Chengdu Taikoo Li</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 14</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Fri 31-Oct-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Chengdu</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p data-end='102' data-start='0'>
+          Visit the
+          <strong data-end='32' data-start='10'>Chengdu Panda Base</strong> to
+          see the adorable giant pandas in their naturalistic environment.
+        </p>
+        <p data-end='214' data-start='104'>
+          Explore
+          <strong data-end='130' data-start='112'>Kuanzhai Alley</strong>, a
+          historic area with traditional architecture, boutique shops, and
+          local snacks.
+        </p>
+        <p data-end='320' data-start='216'>
+          Stroll through People’s Park and
+          <strong>enjoy a relaxing cup of tea</strong>, experiencing local
+          life and culture.
+        </p>
+        <p data-end='426' data-start='322'>
+          Visit
+          <strong data-end='352' data-start='328'>Jinli Ancient Street</strong>, famous for its traditional
+          architecture, handicrafts, and street
+          food.
+        </p>
+        <p>
+          In the evening, experience the world-renowned
+          <strong>Sichuan Opera</strong>, famous for its mesmerizing
+          <strong>face-changing (Bian Lian) performance</strong>, vibrant
+          costumes, and traditional music. This cultural show offers a
+          fascinating glimpse into Sichuan’s rich artistic heritage.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Pagoda Hotel Chengdu Taikoo Li</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 15</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Sat 1-Nov-2025</div>
+          <div class='day-content-destination fl no-wrap city'>
+            Chengdu - Jiuzhaigou
+          </div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        Transfer via: Chengdu - Jiuzhaigou, High-speed Train, first-class
+        seat, C5752 (11:46-13:37)
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p data-end='299' data-start='132' data-is-only-node='' data-is-last-node=''>
+          Transfer to the train station for a
+          <strong>high-speed&nbsp;train to Jiuzhaigou</strong>. Upon arrival,
+          be picked up at Jiuzhaigou Train Station and transfer to your hotel
+          for check-in and rest.
+        </p>
+        <p data-end='320' data-start='298'>
+          Take time to acclimate to the altitude, as Jiuzhaigou sits at
+          approximately&nbsp;1,800 meters (5,500 feet) above sea level. It is
+          important to stay hydrated, avoid strenuous activity on the first
+          day, and monitor for any signs of altitude sickness.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Wyndham Grand Plaza Royale Jiuzhaigou</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 16</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Sun 2-Nov-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Jiuzhaigou</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p>
+          <strong>Enjoy the Fairyland Landscapes with colorful landscapes</strong>.
+        </p>
+        <p>
+          In order to have more time in the park and avoid crowding, you will
+          start early to discover Jiuzhaigou ('Nine Village Valley') Scenic
+          Area, a wonderland named for its nine Tibetan villages.
+        </p>
+        <p>
+          You will visit Jiuzhaigou's three main valleys: Shuzheng Valley,
+          Rize Valley, and Zechawa Valley. There, waiting for your
+          appreciation, is the picturesque natural scenery of clear alpine
+          lakes, overlapping waterfalls, colorful forests, snowcapped
+          mountains, and blue ice.
+        </p>
+        <p>
+          Private vehicles are not allowed inside, so your guide will expertly
+          direct you in taking the shuttle buses in the scenic area and
+          touring around. A variety of restaurants are available in Jiuzhaigou
+          Scenic Area, and your guide will recommend suitable dining places
+          for you.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>Wyndham Grand Plaza Royale Jiuzhaigou</li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 17</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Mon 3-Nov-2025</div>
+          <div class='day-content-destination fl no-wrap city'>Jiuzhaigou</div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p data-end='341' data-start='319'>
+          Drive to <strong>Songpan</strong> (approximately 2 hours), enjoying
+          the charming scenery along the way, including rivers, snow-capped
+          mountains, and picturesque villages.
+        </p>
+        <p data-end='362' data-start='340'>
+          Explore <strong>Songpan Ancient Town</strong>, a historic town with
+          well-preserved streets and traditional architecture.
+        </p>
+        <p data-end='383' data-start='361'>
+          Visit a <strong>Tibetan household</strong> to experience local life,
+          learn how to prepare Tibetan cuisine, and taste authentic Tibetan
+          food.
+        </p>
+        <p data-end='404' data-start='382'>
+          Continue to <strong>Munigou Scenic Area</strong> to enjoy the
+          beautiful landscapes and waterfalls.
+        </p>
+        <p data-end='425' data-start='403'>
+          Overnight stay in Songpan.
+        </p>
+        <div class='latest-hotel mt10'>
+          <p><strong>Accommodation option:</strong></p>
+          <ul>
+            <li class='no-wrap'>
+              Songzhou Ancient City No.1 Courtyard · Hidden Luxury Hotel
+            </li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li class='fa-star'></li>
+            <li>(5Ratings)</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header'>
+        <div class='day-index fl'>Day 18</div>
+        <div class='day-content fl'>
+          <div class='fl no-wrap date'>Tue 4-Nov-2025</div>
+          <div class='day-content-destination fl no-wrap city'>
+            Jiuzhaigou - Chengdu - Exit
+          </div>
+        </div>
+      </div>
+      <div class='card-body container-text'>
+        Transfer via: Jiuzhaigou - Chengdu, High-speed Train, first-class
+        seat, C9472 (10:42-12:23)
+        <p style='padding-left: 95px'>
+          Chengdu - , Flight, , MF8432 (17:55-)
+        </p>
+        <div class='breakfast mt10'>breakfast , lunch</div>
+        <p>
+          In the morning, transfer to the train station for your journey
+          <strong>back to Chengdu</strong>. Upon arrival, meet with tour guide
+          and drive to Tianfu International Airport for your departure flight
+          leave from Chengdu.
+        </p>
+
+      </div>
+    </section>
+    <section class='mt20' style='margin-top: 40px;'>
+      <div class='accordion-header mb-2'>
+        <div class='h4 Itinerary-dot'><span class='dot'></span>ACCOMMODATION</div>
+      </div>
+      <div>* Click on the hotel name to visit more information and details</div>
+      <div style='border: 1px solid #674786;'>
+        <table class='accommodation-table' style='border:none' cellspacing='1' cellpadding='0'>
+          <tbody>
+            <tr>
+              <td class='city-cell'><strong> ShangHai</strong></td>
+              <td class='text-left'><strong>Own arrangement: The St. Regis Shanghai Jingan</strong>
+                <div><span>adults on twin/double occupancy 3 nights</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class='city-cell'><strong> Guangzhou</strong></td>
+              <td class='text-left'><strong>Own arrangement</strong>
+                <div><span>adults on twin/double occupancy 4 nights</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class='city-cell'><strong> Zhangjiajie</strong></td>
+              <td class='text-left'><strong>Wyndham Zhangjiajie Ruijingmanshan Hotel</strong>
+                <div><span>Deluxe King Room with Garden-view 3 nights</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class='city-cell'><strong> Fenghuang</strong></td>
+              <td class='text-left'><strong>Mount Villa by T Residence</strong>
+                <div><span>Deluxe King Room 2 nights</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class='city-cell'><strong> Chengdu</strong></td>
+              <td class='text-left'><strong>Pagoda Hotel Chengdu Taikoo Li</strong>
+                <div><span>Deluxe King Room with City-view 2 nights</span></div>
+              </td>
+            </tr>
+            <tr>
+              <td class='city-cell'><strong> Jiuzhaigou</strong></td>
+              <td class='text-left'><strong>Wyndham Grand Plaza Royale Jiuzhaigou</strong>
+                <div><span>Deluxe King Room 2 nights</span></div><strong>Songzhou Ancient City No.1 Courtyard · Hidden
+                  Luxury Hotel</strong>
+                <div><span>Deluxe Suite 1 nights</span></div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header text-color-primary'>Itinerary Modifications:</div>
+      <div class='container-text'>
+        <p>
+          Go Find Orient reserves the right to adjust the tour itinerary if changes in air schedules, surface
+          transportation, or other uncontrollable events necessitate such modifications. In such cases, any increase or
+          decrease in the tour price will be calculated and charged accordingly.
+        </p>
+        <p>
+          If itinerary changes are requested by the client, any additional costs incurred will be the client's
+          responsibility.
+        </p>
+      </div>
+    </section>
+    <section class='mt20'>
+      <div class='card-header text-color-primary'>Cancellation Policy:</div>
+      <div id='cancellationPolicy' class='p-2 mt10 container-text'>
+        <p>
+          The cancellation fee will be determined based on the date we receive your written cancellation notice,
+          following the Cancellation Policy outlined below:
+        </p>
+        <ol class='container-text-li' style='margin-left:20px'>
+          <li>
+            Cancellation notification received <strong>14 days</strong> prior to departure date: <strong>0%</strong> of
+            total cost of holiday will be charged.
+          </li>
+          <li>
+            Cancellation notification received <strong>7 to 13 days</strong> prior to departure date:
+            <strong>10%</strong> of total cost of holiday will be charged.
+          </li>
+          <li>
+            Cancellation notification received <strong>3 to 6 days</strong> prior to departure date:
+            <strong>50%</strong> of total cost of holiday will be charged.
+          </li>
+          <li>
+            Cancellation notification received <strong>2 to 0 days</strong> prior to departure date:
+            <strong>100%</strong> of total cost of holiday will be charged.
+          </li>
+        </ol>
+        <div class='mt10'>
+          <strong>Note:</strong><br>
+          <ol class='container-text-li' style='margin-left:20px'>
+            <li>
+              If applicable, additional cancellation fees imposed by third-party service providers (including, but not
+              limited to, banks, payment platforms, airlines, cruises, hotels, and railway companies) will be deducted
+              from the refundable amount.
+            </li>
+            <li>
+              Changing the traveler(s) is considered a cancellation and is subject to the policy outlined above.
+            </li>
+            <li>
+              Once the tour has started, we cannot refund any amount for unused services (including, but not limited to,
+              hotels, air or train tickets, meals, and admission fees) due to early departure, late arrival, or missed
+              days on the tour.
+            </li>
+            <li>
+              Special terms may apply in promotions.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <section class='mt20' style='margin-bottom: 20px;'>
+      <div class='card-header text-color-primary'>Acceptance of Terms and Conditions:</div>
+      <div class='p-2 mt10'>
+        <p>
+          By submitting your deposit and/or final payment, you and your travel consultant (if applicable) acknowledge
+          that you have read and accepted these Terms and Conditions.
+        </p>
+        <p>
+          Please visit the following link.<br>
+          <a href='https://www.gofindorient.com/terms-conditions.html'
+            target='_blank'>https://www.gofindorient.com/terms-conditions.html</a>
+        </p>
+      </div>
+    </section>
+  </article>
+</body>
+
+</html>
