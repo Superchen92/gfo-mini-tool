@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -23,10 +22,10 @@ export default defineConfig({
   server: {
     proxy: {
       // 例如，将 /api 的请求代理到 http://localhost:3000
-      '/minitoolapi': {
-        target: 'https://www.gofindorient.com/',
+      '/api': {
+        target: 'http://localhost:3000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/minitoolapi/, '/minitoolapi'),
+        rewrite: (path) => path.replace(/^\/api/, '/api'),
       },
     },
   },
