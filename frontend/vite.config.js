@@ -23,10 +23,10 @@ export default defineConfig({
   server: {
     proxy: {
       // 例如，将 /api 的请求代理到 http://localhost:3000
-      '/api': {
-        target: 'http://localhost:3000',
+      '/minitoolapi': {
+        target: 'https://www.gofindorient.com/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/api'),
+        rewrite: (path) => path.replace(/^\/minitoolapi/, '/minitoolapi'),
       },
     },
   },
