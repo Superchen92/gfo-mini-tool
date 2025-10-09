@@ -99,7 +99,7 @@ import { useQuasar } from 'quasar'
 import { reactive, ref } from 'vue'
 
 const $q = useQuasar()
-const url = ref('/Itinerary/GF20250108Eliza-GM/quotation202508205830.html')
+const url = ref('/Itinerary/GF20250922Elizabeth-GM/quotation202510095950.html')
 const toolBarConfigf = ref([['viewsource']])
 const accordionExpanded = ref(true)
 const cancellationPolicyExpanded = ref(true)
@@ -121,7 +121,7 @@ const htmlElement = reactive({
 
 const getPageHtml = (url) => {
   $q.loading.show()
-  fetch('/api/get-files?url=' + url)
+  fetch('/minitoolapi/get-files?url=' + url)
     .then((response) => {
       return response.json()
     })
@@ -164,7 +164,7 @@ const onSubmit = () => {
 }
 const handleSave = () => {
   $q.loading.show()
-  fetch('/api/save-files', {
+  fetch('/minitoolapi/save-files', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

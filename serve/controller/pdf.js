@@ -1,8 +1,9 @@
 const path = require('path');
 const fs = require('fs');
+const axios = require('axios');
 const parse = require('node-html-parser').parse;
 const baseDir = '/home/GoFindOrient/wwwroot/'; //linux
-// const baseDir = 'E:/home/GoFindOrient/wwwroot/'; //windows
+// const baseDir = 'F:/home/GoFindOrient/wwwroot/'; //windows
 
 exports.getFiles = function getFiles(req, res) {
   // 允许跨域
@@ -31,9 +32,8 @@ exports.saveFiles = async function saveFiles(req, res) {
     img.remove()
   })
   request.accordionNoImg = accordionRoot.toString()
-  const bannerBase64 = await fetch(request.bannerSrc)
-    .then(res => res.arrayBuffer())
-    .then(buffer => Buffer.from(buffer).toString('base64'))
+  const bannerBase64 = await axios.get(request.bannerSrc, { responseType: 'arraybuffer' })
+    .then(response => Buffer.from(response.data, 'binary').toString('base64'))
   request.banner = `<img src="data:image/png;base64,${bannerBase64}" alt="banner" class="img-height" />`
   const quotationHtml = new Promise((resolve, reject) => {
     res.render('quotation', { ...request }, (err, html) => {
