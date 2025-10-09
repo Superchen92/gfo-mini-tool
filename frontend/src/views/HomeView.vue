@@ -1,5 +1,5 @@
 <template>
-  <main class="q-pa-xl">
+  <q-page padding>
     <form @submit.prevent.stop="onSubmit">
       <div class="row q-gutter-md">
         <div class="col-8">
@@ -10,64 +10,79 @@
         </div>
       </div>
     </form>
+    <div class="row">
+      <div class="col-8 q-pr-sm">
+        <q-list bordered class="q-mt-md">
+          <q-expansion-item v-model="accordionExpanded" label="ITINERARY">
+            <q-card>
+              <q-card-section>
+                <q-editor v-model="htmlElement.accordion" :toolbar="toolBarConfigf" />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+          <q-separator />
+          <q-expansion-item v-model="cancellationPolicyExpanded" label="Cancellation Policy">
+            <q-card>
+              <q-card-section>
+                <q-btn
+                  class="q-mb-sm"
+                  label="use template"
+                  color="primary"
+                  dense
+                  outline
+                  @click="handleCancellationPolicyTemp"
+                />
+                <q-editor v-model="htmlElement.cancellationPolicy" :toolbar="toolBarConfigf" />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+          <q-separator />
+          <q-expansion-item v-model="priceIncludesExpanded" label="Price Includes">
+            <q-card>
+              <q-card-section>
+                <q-btn
+                  class="q-mb-sm"
+                  label="AUTO UPDATE"
+                  color="primary"
+                  dense
+                  outline
+                  @click="handlePriceIncludesAutoUpdate"
+                />
+                <q-editor v-model="htmlElement.priceIncludes" :toolbar="toolBarConfigf" />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+          <q-separator />
+          <q-expansion-item v-model="pricePaymentExpanded" label="Price Payment">
+            <q-card>
+              <q-card-section>
+                <q-editor v-model="htmlElement.pricePayment" :toolbar="toolBarConfigf" />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+        </q-list>
+      </div>
+      <div class="col-4">
+        <q-list bordered class="q-mt-md">
+          <q-expansion-item v-model="serviceExpanded" label="Sale Information">
+            <q-card>
+              <q-card-section>
+                <q-editor v-model="htmlElement.service" :toolbar="toolBarConfigf" />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+          <q-separator />
+          <q-expansion-item v-model="tourPriceExpanded" label="Tour Price">
+            <q-card>
+              <q-card-section>
+                <q-editor v-model="htmlElement.tourPrice" :toolbar="toolBarConfigf" />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+        </q-list>
+      </div>
+    </div>
 
-    <q-list bordered class="q-mt-md">
-      <q-expansion-item v-model="cancellationPolicyExpanded" label="Cancellation Policy">
-        <q-card>
-          <q-card-section>
-            <q-btn
-              class="q-mb-sm"
-              label="use template"
-              color="primary"
-              dense
-              outline
-              @click="handleCancellationPolicyTemp"
-            />
-            <q-editor v-model="htmlElement.cancellationPolicy" :toolbar="toolBarConfigf" />
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-      <q-separator />
-      <q-expansion-item v-model="priceIncludesExpanded" label="Price Includes">
-        <q-card>
-          <q-card-section>
-            <q-btn
-              class="q-mb-sm"
-              label="AUTO UPDATE"
-              color="primary"
-              dense
-              outline
-              @click="handlePriceIncludesAutoUpdate"
-            />
-            <q-editor v-model="htmlElement.priceIncludes" :toolbar="toolBarConfigf" />
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-      <q-separator />
-      <q-expansion-item v-model="pricePaymentExpanded" label="Price Payment">
-        <q-card>
-          <q-card-section>
-            <q-editor v-model="htmlElement.pricePayment" :toolbar="toolBarConfigf" />
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-      <q-separator />
-      <q-expansion-item v-model="tourPriceExpanded" label="Tour Price">
-        <q-card>
-          <q-card-section>
-            <q-editor v-model="htmlElement.tourPrice" :toolbar="toolBarConfigf" />
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-      <q-separator />
-      <q-expansion-item v-model="serviceExpanded" label="Sale Information">
-        <q-card>
-          <q-card-section>
-            <q-editor v-model="htmlElement.service" :toolbar="toolBarConfigf" />
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-    </q-list>
     <q-page-sticky expand position="bottom">
       <div class="bg-white row justify-end q-pa-xs" style="width: 100%">
         <div class="col-1">
@@ -75,7 +90,7 @@
         </div>
       </div>
     </q-page-sticky>
-  </main>
+  </q-page>
 </template>
 
 <script setup>
@@ -84,13 +99,14 @@ import { useQuasar } from 'quasar'
 import { reactive, ref } from 'vue'
 
 const $q = useQuasar()
-const url = ref('/Itinerary/GF20250925Laura-CB/quotation202510026006.html')
+const url = ref('/Itinerary/GF20250108Eliza-GM/quotation202508205830.html')
 const toolBarConfigf = ref([['viewsource']])
+const accordionExpanded = ref(true)
 const cancellationPolicyExpanded = ref(true)
-const priceIncludesExpanded = ref(false)
-const pricePaymentExpanded = ref(false)
-const tourPriceExpanded = ref(false)
-const serviceExpanded = ref(false)
+const priceIncludesExpanded = ref(true)
+const pricePaymentExpanded = ref(true)
+const tourPriceExpanded = ref(true)
+const serviceExpanded = ref(true)
 const htmlElement = reactive({
   h1: '',
   priceIncludes: '',

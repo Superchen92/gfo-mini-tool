@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const parse = require('node-html-parser').parse;
-// const baseDir = '/home/GoFindOrient/wwwroot/'; //linux
-const baseDir = 'F:/home/GoFindOrient/wwwroot/'; //windows
+const baseDir = '/home/GoFindOrient/wwwroot/'; //linux
+// const baseDir = 'E:/home/GoFindOrient/wwwroot/'; //windows
 
 exports.getFiles = function getFiles(req, res) {
   // 允许跨域
@@ -83,19 +83,22 @@ const getFileByUrl = (url) => {
 const parseHtml = (html) => {
   const root = parse(html)
   const h1 = root.querySelector('.welcome-text h1').textContent
-  const bannerImg = root.querySelector('#banner-img').toString()
-  const bannerSrc = root.querySelector('#banner-img').attributes['data-src']
+  const bannerImg = root.querySelector('#overNight') ? root.querySelector('#banner-img').toString() : ''
+  const bannerSrc = root.querySelector('#banner-img').attributes['data-src'] || root.querySelector('#banner-img').attributes['src']
   const detailUl = root.querySelector('.detail-ul').toString()
   const title = root.querySelector('title').textContent
   const accordion = root.querySelector('#accordion').toString()
-  const overNight = root.querySelector('#overNight')?.toString()
+  const overNight = root.querySelector('#overNight') ? root.querySelector('#overNight').textContent : ''
   const pricePayment = root.querySelector('#pricePayment').toString()
+  const noteForPrice = root.querySelector('#noteForPrice') ? root.querySelector('#noteForPrice').toString() : ''
   const priceIncludes = root.querySelector('#priceIncludes').toString()
   const priceExcludes = root.querySelector('#priceExcludes')?.toString()
   const cancellationPolicy = root.querySelector('#cancellationPolicy').toString()
   const quotationSideBar = root.querySelector('.quotation-sidebar').toString()
   const tourPrice = root.querySelector('#tourPrice').toString()
   const service = root.querySelector('.customer-service-card').toString()
+  const paypalScript = root.querySelectorAll('script')[root.querySelectorAll('script').length - 1].toString()
+  const paypalBtn = root.querySelector('#paypalBtn') ? root.querySelector('#paypalBtn').toString() : ''
 
   return {
     h1,
@@ -106,11 +109,14 @@ const parseHtml = (html) => {
     accordion,
     overNight,
     pricePayment,
+    noteForPrice,
     priceIncludes,
     priceExcludes,
     tourPrice,
     service,
     quotationSideBar,
     cancellationPolicy,
+    paypalScript,
+    paypalBtn
   }
 }

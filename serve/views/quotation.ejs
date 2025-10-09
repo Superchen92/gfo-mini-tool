@@ -122,10 +122,10 @@
         <section class="pt-3">
             <div class="container">
                 <div class="welcome-text-mobile">
-                    <h1>$hdKey[8]</h1>
+                    <h1><%- h1 %></h1>
                     <h4 class="badge badge-light" style="font-size:16px;padding: .25em 0em .25em .4em;color: #fff;background-color: var(--primary-gray-color)">
                         Your Reference No.
-                        <span style="border-radius: .25rem;padding: 0em .4em;color: #fff;background-color: var(--primary-dark-color)">$hdKey[9]</span>
+                        <span style="border-radius: .25rem;padding: 0em .4em;color: #fff;background-color: var(--primary-dark-color)"><%- h1 %></span>
                     </h4>
                 </div>
                 <div class="section-content">
@@ -227,11 +227,7 @@
                                             </li>
                                         </ol>
                                     </div>
-                                    <div>
-                                        <!--payment begin-->
-                                        $hdKey[20]
-                                        <!--payment end-->
-                                    </div>
+                                    <%- paypalBtn %>
                                 </div>
                             </div>
 
@@ -244,37 +240,20 @@
                                 <div class="card-header text-color-primary p-2">
                                     Notes For Price:
                                 </div>
-                                <div class="p-2" style="margin-left:20px">
-                                    <ol>
-                                        <li>This offer is valid until <strong>$hdKey[21]</strong>. Prices may change after this date, so we recommend booking early
-                                            to secure the best rate.</li>
-                                        <li>This offer is valid for $hdKey[22] adults traveling together. Any changes to the number of travelers may
-                                            result in a price adjustment.</li>
-                                        <li>No hotel rooms or flights have been
-                                            booked yet. We will proceed with the bookings once the deposit payment
-                                            is received. Room confirmations at your preferred hotels are subject to
-                                            availability on the booking date. If rooms at the desired hotels are
-                                            unavailable, we will secure bookings at an alternate or similar category
-                                            hotel. Any applicable supplements or reductions will be required in
-                                            such cases.</li>
-                                    </ol>
-                                </div>
+                                <%- noteForPrice %>
                             </div>
-
                             <div class="card mb-4">
                                 <div class="card-header text-color-primary p-2">
                                     Price Includes:
                                 </div>
                                 <%- priceIncludes %>
                             </div>
-
                             <div class="card mb-4">
                                 <div class="card-header text-color-primary p-2">
                                     Price Excludes:
                                 </div>
                                 <%- priceExcludes %>
                             </div>
-
                             <div class="card mb-4">
                                 <div class="card-header text-color-primary p-2">
                                     Cancellation Policy:
@@ -300,9 +279,7 @@
                                     </ol>
                                 </div>
                             </div>
-
                             <div class="title-dashed-line"><span>SERVICE</span></div>
-
                             <div class="card mb-4">
                                 <div class="card-header text-color-primary p-2">
                                     Land Tour:
@@ -457,7 +434,6 @@
                                         questions about anything.</p>
                                 </div>
                             </div>
-
                             <div class="card mb-4">
                                 <div class="card-header text-color-primary p-2">
                                     The ways to reduce the cost
@@ -466,7 +442,6 @@
                                     <p>If your budget is lower than the listed quotes above, we may still be able to
                                         assist you. All our trips are customized and can be adjusted to fit your budget.
                                         Here are some suggestions for reducing costs:</p>
-
                                     <p><i class="fa fa-check text-color-primary "></i> Shorten the duration of your trip
                                         or reduce the planned destination. </p>
                                     <p><i class="fa fa-check text-color-primary "></i> Book early. </p>
@@ -475,7 +450,6 @@
                                         you. Note: Traveling with more companions can reduce the price per person.</p>
                                 </div>
                             </div>
-
                             <div class="card mb-4">
                                 <div class="card-header text-color-primary p-2">
                                     Extend your journey
@@ -489,38 +463,18 @@
                         </div>
                         <%- quotationSideBar %>
                     </div>
-
                 </div>
             </div>
         </section>
     </div>
-    <!-- End Page Wrapper  -->
-    <a href="#" class="scrollup"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a>
-    <input type="hidden" id="tourCode" value="1125" />
-    <input type="hidden" id="tourCategory" value="1" />
-    <input type="hidden" id="tourName" value="Bangkok & Phuket Escape" />
-    <input type="hidden" id="tourPassCity" value="Bangkok - Ayutthaya - Phuket" />
-    <input type="hidden" id="tourStartCity" value="Bangkok " />
-    <input type="hidden" id="tourEndCity" value=" Phuket" />
-    <input type="hidden" id="tourLength" value="7" />
-    <textarea id="tourIncludes" style="display:none"><UL class="mt-4 mb-4 clearfix">
-<LI>One-to-one consultancy with our travel expert</LI>
-<LI>Knowledgeable and helpful local guides</LI>
-<LI>Private and comfortable van</LI>
-<LI>All accommodations</LI>
-<LI>Meals listed in the itinerary</LI>
-<LI>Activities and excursions as detailed</LI>
-<LI>In-destination transfers</LI>
-<LI>A 24/7 helpline while you are traveling</LI></UL></textarea>
     <!------------------------------------------
-    Main JavaScript
+                    Main JavaScript
     <------------------------------------------>
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script defer src="/js/bootstrap.min.js"></script>
     <script defer src="/js/jquery.sticky-kit.min.js"></script>
     <script defer src="/js/flatpickr.js"></script>
     <script src="/js/swiper-bundle.min.js"></script>
-
     <!-- Optional JavaScript -->
     <script defer src="/js/owl.carousel.min.js"></script>
     <!-- Custom JavaScript -->
@@ -529,70 +483,6 @@
     <script defer src="/js/tour-calendar.js"></script>
     <script defer src="/js/script.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=AZLS50-ojGxdG2VFpzy4S7HhCrb-rvlHz4AqfsHcySMGgi64v-lpxeHidCKlh6SGfvJNXkv93Pfdtuy1&currency=USD&locale=en_US&commit=false"></script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org/",
-            "@type": "Product",
-            "name": "Bangkok & Phuket Escape",
-            "image": [
-                "https://gofind.jjtravel.com/15160"
-            ],
-            "description": "Except the majestic Grand Palace and the white sandy beaches, you will roam around Ayutthaya,and bargain in the 100+years Damnoen Saduak floating market.",
-            "mpn": "Bangkok & Phuket Escape",
-            "sku": "Bangkok & Phuket Escape",
-            "brand": {
-                "@type": "Brand",
-                "name": "GoFindOrient"
-            },
-            "offers": {
-                "@type": "Offer",
-                "url": "https://www.gofindorient.com",
-                "price": "769",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/OnlineOnly",
-                "validFrom": "2022-01-27T12:23:48",
-                "priceValidUntil": "2023-01-27T12:23:48"
-            }
-        }
-    </script>
-    <script>
-        $(function() {
-            const balance = $hdKey[18]
-
-            if (balance > 0) {
-                paypal.Buttons({
-                    style: {
-                        layout: 'vertical',
-                        color: 'blue',
-                        shape: 'rect',
-                        tagline: false,
-                        label: 'pay'
-                    },
-                    createOrder: function(data, actions) {
-                        return actions.order.create({
-                            purchase_units: [{
-                                amount: {
-                                    value: balance,
-                                    // currency_code: ''
-                                },
-                                invoice_id: '$hdKey[9]',
-                                custom_id: '$hdKey[9]',
-                                description: '$hdKey[9]'
-                            }]
-                        });
-                    }
-                }).render('#paypal-button-balance');
-            }
-
-            var swiper = new Swiper("#reviewsSwiper", {
-                spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: {
-                    delay: 3500,
-                    disableOnInteraction: false,
-                },
-            });
-        })
-    </script>
+    <%- paypalScript %>
 </body>
 </html>
