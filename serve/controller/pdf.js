@@ -87,16 +87,14 @@ const parseHtml = (html) => {
   const bannerSrc = root.querySelector('#banner-img').attributes['data-src'] || root.querySelector('#banner-img').attributes['src']
   const detailUl = root.querySelector('.detail-ul').toString()
   const title = root.querySelector('title').textContent
-  const accordion = root.querySelector('#accordion').toString()
-  const overNight = root.querySelector('#overNight') ? root.querySelector('#overNight').textContent : ''
-  const pricePayment = root.querySelector('#pricePayment').toString()
+  const accordion = root.querySelector('#accordion') ? root.querySelector('#accordion').toString() : ''
+  const overNight = root.querySelector('#overNight') ? root.querySelector('#overNight').toString() : ''
+  const pricePayment = root.querySelector('#pricePayment') ? root.querySelector('#pricePayment').toString() : ''
   const noteForPrice = root.querySelector('#noteForPrice') ? root.querySelector('#noteForPrice').toString() : ''
-  const priceIncludes = root.querySelector('#priceIncludes').toString()
-  const priceExcludes = root.querySelector('#priceExcludes')?.toString()
-  const cancellationPolicy = root.querySelector('#cancellationPolicy').toString()
-  const quotationSideBar = root.querySelector('.quotation-sidebar').toString()
-  const tourPrice = root.querySelector('#tourPrice').toString()
-  const service = root.querySelector('.customer-service-card').toString()
+  const priceIncludes = root.querySelector('#priceIncludes') ? root.querySelector('#priceIncludes').toString() : ''
+  const priceExcludes = root.querySelector('#priceExcludes') ? root.querySelector('#priceExcludes').toString() : ''
+  const cancellationPolicy = root.querySelector('#cancellationPolicy') ? root.querySelector('#cancellationPolicy').toString() : ''
+  const quotationSideBar = root.querySelector('#quotation-sidebar') ? root.querySelector('#quotation-sidebar').toString() : ''
   const paypalScript = root.querySelectorAll('script')[root.querySelectorAll('script').length - 1].toString()
   const paypalBtn = root.querySelector('#paypalBtn') ? root.querySelector('#paypalBtn').toString() : ''
 
@@ -112,8 +110,6 @@ const parseHtml = (html) => {
     noteForPrice,
     priceIncludes,
     priceExcludes,
-    tourPrice,
-    service,
     quotationSideBar,
     cancellationPolicy,
     paypalScript,

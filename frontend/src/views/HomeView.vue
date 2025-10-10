@@ -53,6 +53,22 @@
             </q-card>
           </q-expansion-item>
           <q-separator />
+          <q-expansion-item v-model="priceExcludesExpanded" label="Price Excludes">
+            <q-card>
+              <q-card-section>
+                <q-btn
+                  class="q-mb-sm"
+                  label="AUTO UPDATE"
+                  color="primary"
+                  dense
+                  outline
+                  @click="handlePriceExcludesAutoUpdate"
+                />
+                <q-editor v-model="htmlElement.priceExcludes" :toolbar="toolBarConfigf" />
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+          <q-separator />
           <q-expansion-item v-model="pricePaymentExpanded" label="Price Payment">
             <q-card>
               <q-card-section>
@@ -64,18 +80,10 @@
       </div>
       <div class="col-4">
         <q-list bordered class="q-mt-md">
-          <q-expansion-item v-model="serviceExpanded" label="Sale Information">
+          <q-expansion-item v-model="sideBarExpanded" label="SideBar">
             <q-card>
               <q-card-section>
-                <q-editor v-model="htmlElement.service" :toolbar="toolBarConfigf" />
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
-          <q-separator />
-          <q-expansion-item v-model="tourPriceExpanded" label="Tour Price">
-            <q-card>
-              <q-card-section>
-                <q-editor v-model="htmlElement.tourPrice" :toolbar="toolBarConfigf" />
+                <q-editor v-model="htmlElement.quotationSideBar" :toolbar="toolBarConfigf" />
               </q-card-section>
             </q-card>
           </q-expansion-item>
@@ -99,24 +107,24 @@ import { useQuasar } from 'quasar'
 import { reactive, ref } from 'vue'
 
 const $q = useQuasar()
-const url = ref('/Itinerary/GF20250922Elizabeth-GM/quotation202510095950.html')
+const url = ref('')
 const toolBarConfigf = ref([['viewsource']])
-const accordionExpanded = ref(true)
+const accordionExpanded = ref(false)
 const cancellationPolicyExpanded = ref(true)
 const priceIncludesExpanded = ref(true)
+const priceExcludesExpanded = ref(true)
 const pricePaymentExpanded = ref(true)
-const tourPriceExpanded = ref(true)
-const serviceExpanded = ref(true)
+const sideBarExpanded = ref(true)
 const htmlElement = reactive({
   h1: '',
   priceIncludes: '',
+  priceExcludes: '',
   accordion: '',
   cancellationPolicy: '',
   detailUl: '',
   pricePayment: '',
-  service: '',
   title: '',
-  tourPrice: '',
+  quotationSideBar: '',
 })
 
 const getPageHtml = (url) => {
@@ -154,6 +162,12 @@ const handlePriceIncludesAutoUpdate = () => {
     list[6].parentNode.removeChild(list[6])
   }
   htmlElement.priceIncludes = root.toString()
+}
+const handlePriceExcludesAutoUpdate = () => {
+  const root = parse(htmlElement.priceExcludes)
+  const list = root.querySelector('ol')
+  list.append('<li><strong>City tax&lOnsen tax are excluded.</strong></li>')
+  htmlElement.priceExcludes = root.toString()
 }
 const onSubmit = () => {
   if (url.value) {
