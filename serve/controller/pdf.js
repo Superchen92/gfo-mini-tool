@@ -24,6 +24,7 @@ exports.saveFiles = async function saveFiles(req, res) {
   if (!request.filename) {
       return res.status(400).json({ error: 'Missing filename' });
   }
+  const template = request.filename.includes('confirm') ? 'confirm' : 'quotation'
   const accordionRoot = parse(request.accordion)
   accordionRoot.querySelectorAll('.link-modal-list').forEach(div => {
     div.remove()
@@ -35,35 +36,27 @@ exports.saveFiles = async function saveFiles(req, res) {
   const bannerBase64 = await axios.get(request.bannerSrc, { responseType: 'arraybuffer' })
     .then(response => Buffer.from(response.data, 'binary').toString('base64'))
   request.banner = `<img src="data:image/png;base64,${bannerBase64}" alt="banner" class="img-height" />`
-  const quotationHtml = new Promise((resolve, reject) => {
-    res.render('quotation', { ...request }, (err, html) => {
+  const pageHtml = new Promise((resolve, reject) => {
+    res.render(template, { ...request }, (err, html) => {
       if (err) {
         return reject(err);
       }
       resolve(html);
     })
   })
-  const quotationPdfHtml = new Promise((resolve, reject) => {
-    res.render('quotation-pdf', { ...request }, (err, html) => {
+  const pdfHtml = new Promise((resolve, reject) => {
+    res.render(template + '-pdf', { ...request }, (err, html) => {
       if (err) {
         return reject(err);
       }
       resolve(html);
     })
   })
-  // const confirmPdfHtml = new Promise((resolve, reject) => {
-  //   res.render('confirm-pdf', { ...request }, (err, html) => {
-  //     if (err) {
-  //       return reject(err);
-  //     }
-  //     resolve(html);
-  //   })
-  // })
-  Promise.all([quotationHtml,quotationPdfHtml])
-    .then(([quotationHtml, quotationPdfHtml]) => {
-      if(quotationHtml) {
-        fs.writeFileSync(path.join(baseDir, request.filename), quotationHtml, 'utf8')
-        fs.writeFileSync(path.join(baseDir, request.filename).replace('Itinerary', 'pdf'), quotationPdfHtml, 'utf8')
+  Promise.all([pageHtml,pdfHtml])
+    .then(([pageHtml, pdfHtml]) => {
+      if(pageHtml) {
+        fs.writeFileSync(path.join(baseDir, request.filename), pageHtml, 'utf8')
+        fs.writeFileSync(path.join(baseDir, request.filename).replace('Itinerary', 'pdf'), pdfHtml, 'utf8')
       }
       const safeFilename = path.basename(request.filename).replace(/[^a-zA-Z0-9_\-\.]/g, '');
       res.json({ message: 'HTML file generated successfully', file: safeFilename });
@@ -82,37 +75,56 @@ const getFileByUrl = (url) => {
 
 const parseHtml = (html) => {
   const root = parse(html)
+  
+  //common
   const h1 = root.querySelector('.welcome-text h1').textContent
-  const bannerImg = root.querySelector('#overNight') ? root.querySelector('#banner-img').toString() : ''
-  const bannerSrc = root.querySelector('#banner-img').attributes['data-src'] || root.querySelector('#banner-img').attributes['src']
-  const detailUl = root.querySelector('.detail-ul').toString()
   const title = root.querySelector('title').textContent
   const accordion = root.querySelector('#accordion') ? root.querySelector('#accordion').toString() : ''
+  const bannerImg = root.querySelector('#banner-img') ? root.querySelector('#banner-img').toString() : ''
+  const bannerSrc = root.querySelector('#banner-img').attributes['data-src'] || root.querySelector('#banner-img').attributes['src']
+  const cancellationPolicy = root.querySelector('#cancellationPolicy') ? root.querySelector('#cancellationPolicy').toString() : ''
+  const priceIncludes = root.querySelector('#priceIncludes') ? root.querySelector('#priceIncludes').toString() : ''
+  const priceExcludes = root.querySelector('#priceExcludes') ? root.querySelector('#priceExcludes').toString() : ''
+  const sideBar = root.querySelector('#sideBar') ? root.querySelector('#sideBar').toString() : ''
+  const payment = root.querySelector('#payment') ? root.querySelector('#payment').toString() : ''
+  const paypalScript = root.querySelectorAll('script')[root.querySelectorAll('script').length - 1].toString()
+
+  //confirm
+  const confirmationNumber = root.querySelector('#confirmationNumber') ? root.querySelector('#confirmationNumber').toString() : ''
+  const contactInfo = root.querySelector('#contactInfo') ? root.querySelector('#contactInfo').toString() : ''
+  const transportation = root.querySelector('#transportation') ? root.querySelector('#transportation').toString() : ''
+  const groupMember = root.querySelector('#groupMember') ? root.querySelector('#groupMember').toString() : ''
+  const accommodation = root.querySelector('#accommodation') ? root.querySelector('#accommodation').toString() : ''
+
+  //quotation
+  const detailUl = root.querySelector('.detail-ul') ? root.querySelector('.detail-ul').toString() : ''
   const overNight = root.querySelector('#overNight') ? root.querySelector('#overNight').toString() : ''
   const pricePayment = root.querySelector('#pricePayment') ? root.querySelector('#pricePayment').toString() : ''
   const noteForPrice = root.querySelector('#noteForPrice') ? root.querySelector('#noteForPrice').toString() : ''
-  const priceIncludes = root.querySelector('#priceIncludes') ? root.querySelector('#priceIncludes').toString() : ''
-  const priceExcludes = root.querySelector('#priceExcludes') ? root.querySelector('#priceExcludes').toString() : ''
-  const cancellationPolicy = root.querySelector('#cancellationPolicy') ? root.querySelector('#cancellationPolicy').toString() : ''
-  const quotationSideBar = root.querySelector('#quotation-sidebar') ? root.querySelector('#quotation-sidebar').toString() : ''
-  const paypalScript = root.querySelectorAll('script')[root.querySelectorAll('script').length - 1].toString()
-  const paypalBtn = root.querySelector('#paypalBtn') ? root.querySelector('#paypalBtn').toString() : ''
 
   return {
+    //common
     h1,
     title,
+    accordion,
     bannerImg,
     bannerSrc,
+    cancellationPolicy,
+    priceIncludes,
+    priceExcludes,
+    sideBar,
+    payment,
+    paypalScript,
+    //confirm
+    confirmationNumber,
+    contactInfo,
+    transportation,
+    groupMember,
+    accommodation,
+    //quotation
     detailUl,
-    accordion,
     overNight,
     pricePayment,
     noteForPrice,
-    priceIncludes,
-    priceExcludes,
-    quotationSideBar,
-    cancellationPolicy,
-    paypalScript,
-    paypalBtn
   }
 }
