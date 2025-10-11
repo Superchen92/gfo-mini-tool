@@ -47,7 +47,7 @@ import QuotationPage from './QuotationPage.vue'
 import ConfirmPage from './ConfirmPage.vue'
 import { parse } from 'node-html-parser'
 
-const url = ref('/Itinerary/GF20250108Eliza-GM/confirm202509095842.html')
+const url = ref('')
 const contentComponents = computed(() => {
   if (url.value.includes('confirm')) {
     return ConfirmPage

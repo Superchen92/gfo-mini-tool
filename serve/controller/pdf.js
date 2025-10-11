@@ -81,7 +81,7 @@ const parseHtml = (html) => {
   const title = root.querySelector('title').textContent
   const accordion = root.querySelector('#accordion') ? root.querySelector('#accordion').toString() : ''
   const bannerImg = root.querySelector('#banner-img') ? root.querySelector('#banner-img').toString() : ''
-  const bannerSrc = root.querySelector('#banner-img').attributes['data-src'] || root.querySelector('#banner-img').attributes['src']
+  const bannerSrc = root.querySelector('#banner-img') ? root.querySelector('#banner-img').attributes['data-src'] || root.querySelector('#banner-img').attributes['src'] : ''
   const cancellationPolicy = root.querySelector('#cancellationPolicy') ? root.querySelector('#cancellationPolicy').toString() : ''
   const priceIncludes = root.querySelector('#priceIncludes') ? root.querySelector('#priceIncludes').toString() : ''
   const priceExcludes = root.querySelector('#priceExcludes') ? root.querySelector('#priceExcludes').toString() : ''
