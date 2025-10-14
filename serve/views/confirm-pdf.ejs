@@ -365,9 +365,8 @@
       margin-right: 10px;
     }
 
-    .flex {
-      display: flex;
-      width: 95%;
+    .flex div {
+      float: left;
     }
 
     .card-header {
@@ -401,11 +400,15 @@
       float: left;
     }
 
-.card-header .day-index{display:inline-block;width:75px;color:#fff;background-color:#481b75;height:25px;line-height:25px;border-radius:12px;margin-top:10px;font-weight:bold;text-align:center;}
+    .card-header .day-index{display:inline-block;width:75px;color:#fff;background-color:#481b75;height:25px;line-height:25px;border-radius:12px;margin-top:10px;font-weight:bold;text-align:center;}
 
-    .card-header .day-content{display: flex;color:#481b75;margin:0 20px;width:calc(100% - 150px);}
+    .card-header .day-content{color:#481b75;margin:0 20px;width:calc(100% - 150px);}
 
     .card-header .day-content-destination{font-weight:bold;margin-left:15px;}
+
+    .day-content div {
+      white-space: nowrap;
+    }
 
     .day-content .date {
       width: 130px;
@@ -423,6 +426,7 @@
       float: left;
       line-height: 25px;
       margin-right: 10px;
+      white-space: nowrap;
     }
 
     .accommodation-table {
