@@ -96,7 +96,7 @@ const autoUpdateMap = {
   priceExcludes: () => {
     const root = parse(htmlElement.priceExcludes)
     const list = root.querySelector('ol')
-    list.append('<li><strong>City tax&lOnsen tax are excluded.</strong></li>')
+    list.append('<li><strong>City tax&Onsen tax are excluded.</strong></li>')
     htmlElement.priceExcludes = root.toString()
   },
 }
