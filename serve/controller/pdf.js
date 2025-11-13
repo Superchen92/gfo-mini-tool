@@ -102,7 +102,6 @@ exports.saveFiles = function saveFiles(req, res) {
   }
   const html = getFileByUrl(request.filename)
   const root = parse(html)
-  console.log(request.body)
   if(request.body.startsWith('<body')) {
     root.querySelector('body').replaceWith(request.body)
   } else {
