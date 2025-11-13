@@ -1,15 +1,6 @@
 <template>
   <q-page padding>
-    <form @submit.prevent.stop="getPageHtml">
-      <div class="row q-gutter-md">
-        <div class="col-8">
-          <q-input v-model="url" dense rounded outlined label="URL" />
-        </div>
-        <div class="col-2">
-          <q-btn label="Search" type="submit" color="primary" />
-        </div>
-      </div>
-    </form>
+    <SearchHeader v-model="url" @search-result="handleSearchResult" />
     <div class="row q-mb-xl">
       <div class="col-8 q-pr-sm">
         <component
@@ -46,8 +37,8 @@ import { useQuasar } from 'quasar'
 import QuotationPage from './QuotationPage.vue'
 import ConfirmPage from './ConfirmPage.vue'
 import { parse } from 'node-html-parser'
+import SearchHeader from '@/components/SearchHeader.vue'
 
-const url = ref('')
 const contentComponents = computed(() => {
   if (url.value.includes('confirm')) {
     return ConfirmPage
@@ -69,6 +60,7 @@ const htmlElement = reactive({
 })
 const sideBarExpanded = ref(true)
 const $q = useQuasar()
+const url = ref('')
 
 const autoUpdateMap = {
   cancellationPolicy: () => {
@@ -100,27 +92,12 @@ const autoUpdateMap = {
     htmlElement.priceExcludes = root.toString()
   },
 }
-const getPageHtml = () => {
-  if (!url.value) {
-    alert('Please enter a URL')
-    return
-  }
-  $q.loading.show()
-  fetch('/minitoolapi/get-files?url=' + url.value)
-    .then((response) => {
-      return response.json()
-    })
-    .then((data) => {
-      Object.assign(htmlElement, data)
-    })
-    .catch((error) => {
-      console.error('Error fetching page:', error)
-    })
-    .finally(() => $q.loading.hide())
+const handleSearchResult = (result) => {
+  Object.assign(htmlElement, result)
 }
 const handleSave = () => {
   $q.loading.show()
-  fetch('/minitoolapi/save-files', {
+  fetch('/minitoolapi/save-files/pdf', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

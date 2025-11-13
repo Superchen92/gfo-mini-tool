@@ -8,62 +8,19 @@ const baseDir = '/home/GoFindOrient/wwwroot/'; //linux
 exports.getFiles = function getFiles(req, res) {
   // 允许跨域
   res.setHeader('Access-Control-Allow-Origin', '*');
-  if(req.query.url == '') {
+  const request = req.body
+  if (!request.url) {
     return res.status(400).json({ error: 'Missing url parameter' });
   } else {
-    const html = getFileByUrl(req.query.url)
-    const parseHtmlData = parseHtml(html)
-    res.json(parseHtmlData);
+    const html = getFileByUrl(request.url)
+    const parseHtmlData = {}
+    if(request.type === 'pdf') {
+      Object.assign(parseHtmlData, parseHtmlByPdf(html))
+    } else {
+      Object.assign(parseHtmlData, parseHtmlByDefault(html))
+    }
+    res.json(parseHtmlData)
   }
-}
-
-exports.saveFiles = async function saveFiles(req, res) {
-  // 允许跨域
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  const request = req.body
-  if (!request.filename) {
-      return res.status(400).json({ error: 'Missing filename' });
-  }
-  const template = request.filename.includes('confirm') ? 'confirm' : 'quotation'
-  const accordionRoot = parse(request.accordion)
-  accordionRoot.querySelectorAll('.link-modal-list').forEach(div => {
-    div.remove()
-  })
-  accordionRoot.querySelectorAll('img').forEach(img => {
-    img.remove()
-  })
-  request.accordionNoImg = accordionRoot.toString()
-  const bannerBase64 = await axios.get(request.bannerSrc, { responseType: 'arraybuffer' })
-    .then(response => Buffer.from(response.data, 'binary').toString('base64'))
-  request.banner = `<img src="data:image/png;base64,${bannerBase64}" alt="banner" class="img-height" />`
-  const pageHtml = new Promise((resolve, reject) => {
-    res.render(template, { ...request }, (err, html) => {
-      if (err) {
-        return reject(err);
-      }
-      resolve(html);
-    })
-  })
-  const pdfHtml = new Promise((resolve, reject) => {
-    res.render(template + '-pdf', { ...request }, (err, html) => {
-      if (err) {
-        return reject(err);
-      }
-      resolve(html);
-    })
-  })
-  Promise.all([pageHtml,pdfHtml])
-    .then(([pageHtml, pdfHtml]) => {
-      if(pageHtml) {
-        fs.writeFileSync(path.join(baseDir, request.filename), pageHtml, 'utf8')
-        fs.writeFileSync(path.join(baseDir, request.filename).replace('Itinerary', 'pdf'), pdfHtml, 'utf8')
-      }
-      const safeFilename = path.basename(request.filename).replace(/[^a-zA-Z0-9_\-\.]/g, '');
-      res.json({ message: 'HTML file generated successfully', file: safeFilename });
-    })
-    .catch(err => {
-      res.status(500).json({ err });
-    })
 }
 
 const getFileByUrl = (url) => {
@@ -73,7 +30,14 @@ const getFileByUrl = (url) => {
     return data
 }
 
-const parseHtml = (html) => {
+const parseHtmlByDefault = (html) => {
+  const root = parse(html)
+  return {
+    body: root.querySelector('body').toString()
+  }
+}
+
+const parseHtmlByPdf = (html) => {
   const root = parse(html)
   
   //common
@@ -127,4 +91,71 @@ const parseHtml = (html) => {
     pricePayment,
     noteForPrice,
   }
+}
+
+exports.saveFiles = function saveFiles(req, res) {
+  // 允许跨域
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  const request = req.body
+  if (!request.filename) {
+      return res.status(400).json({ error: 'Missing filename' });
+  }
+  const html = getFileByUrl(request.filename)
+  const root = parse(html)
+  console.log(request.body)
+  if(request.body.startsWith('<body')) {
+    root.querySelector('body').replaceWith(request.body)
+  } else {
+    root.querySelector('body').replaceWith(`<body>${request.body}</body>`)
+  }
+  fs.writeFileSync(path.join(baseDir, request.filename), root.toString(), 'utf8')
+  res.json({ message: 'HTML file saved successfully', file: request.filename });
+}
+exports.saveFilesByPdf = async function saveFilesByPdf(req, res) {
+  // 允许跨域
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  const request = req.body
+  if (!request.filename) {
+      return res.status(400).json({ error: 'Missing filename' });
+  }
+  const template = request.filename.includes('confirm') ? 'confirm' : 'quotation'
+  const accordionRoot = parse(request.accordion)
+  accordionRoot.querySelectorAll('.link-modal-list').forEach(div => {
+    div.remove()
+  })
+  accordionRoot.querySelectorAll('img').forEach(img => {
+    img.remove()
+  })
+  request.accordionNoImg = accordionRoot.toString()
+  const bannerBase64 = await axios.get(request.bannerSrc, { responseType: 'arraybuffer' })
+    .then(response => Buffer.from(response.data, 'binary').toString('base64'))
+  request.banner = `<img src="data:image/png;base64,${bannerBase64}" alt="banner" class="img-height" />`
+  const pageHtml = new Promise((resolve, reject) => {
+    res.render(template, { ...request }, (err, html) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(html);
+    })
+  })
+  const pdfHtml = new Promise((resolve, reject) => {
+    res.render(template + '-pdf', { ...request }, (err, html) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(html);
+    })
+  })
+  Promise.all([pageHtml,pdfHtml])
+    .then(([pageHtml, pdfHtml]) => {
+      if(pageHtml) {
+        fs.writeFileSync(path.join(baseDir, request.filename), pageHtml, 'utf8')
+        fs.writeFileSync(path.join(baseDir, request.filename).replace('Itinerary', 'pdf'), pdfHtml, 'utf8')
+      }
+      const safeFilename = path.basename(request.filename).replace(/[^a-zA-Z0-9_\-\.]/g, '');
+      res.json({ message: 'HTML file generated successfully', file: safeFilename });
+    })
+    .catch(err => {
+      res.status(500).json({ err });
+    })
 }

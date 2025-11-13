@@ -6,7 +6,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/EditPage/IndexContainer.vue'),
+      component: () => import('../views/Home/IndexContainer.vue'),
+    },
+    {
+      path: '/quotationandconfirm',
+      name: 'QuotationAndConfirm',
+      component: () => import('../views/QuotationAndConfirm/IndexContainer.vue'),
+    },
+    {
+      path: '/besttime',
+      name: 'BestTime',
+      component: () => import('../views/BestTime/IndexContainer.vue'),
     },
   ],
 })
