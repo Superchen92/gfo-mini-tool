@@ -31,7 +31,6 @@ exports.getFiles = function getFiles(req, res) {
         months,
         promoted
       }, (err, html) => {
-        console.log(html)
         if (err) {
           console.error(err)
           return res.status(500).json({ error: 'Internal server error' });
