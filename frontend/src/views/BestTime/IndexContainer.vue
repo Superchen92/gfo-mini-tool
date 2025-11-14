@@ -18,7 +18,7 @@ import { ref } from 'vue'
 import SearchHeader from '@/components/SearchHeader.vue'
 
 const html = ref('')
-const url = ref('/japan-guide/best-time.html')
+const url = ref('/thailand-guide/best-time.html')
 const $q = useQuasar()
 
 const handleSearchResult = (data) => {

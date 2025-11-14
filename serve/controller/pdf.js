@@ -16,10 +16,31 @@ exports.getFiles = function getFiles(req, res) {
     const parseHtmlData = {}
     if(request.type === 'pdf') {
       Object.assign(parseHtmlData, parseHtmlByPdf(html))
+      res.json(parseHtmlData)
     } else {
-      Object.assign(parseHtmlData, parseHtmlByDefault(html))
+      const root = parse(html)
+      const header = root.querySelector('header') ? root.querySelector('header').toString() : ''
+      const banner = root.querySelector('#banner') ? root.querySelector('#banner').toString() : ''
+      const overView = root.querySelector('#overView') ? root.querySelector('#overView').toString() : ''
+      const months = root.querySelector('.months') ? root.querySelector('.months').toString() : ''
+      const promoted = root.querySelector('#promoted') ? root.querySelector('#promoted').toString() : ''
+      res.render('best-time', {
+        header,
+        banner,
+        overView,
+        months,
+        promoted
+      }, (err, html) => {
+        console.log(html)
+        if (err) {
+          console.error(err)
+          return res.status(500).json({ error: 'Internal server error' });
+        }
+        res.json({
+          body: html
+        })
+      })
     }
-    res.json(parseHtmlData)
   }
 }
 
@@ -28,13 +49,6 @@ const getFileByUrl = (url) => {
     const filePath = path.join(baseDir, safePath);
     const data = fs.readFileSync(filePath, 'utf8')
     return data
-}
-
-const parseHtmlByDefault = (html) => {
-  const root = parse(html)
-  return {
-    body: root.querySelector('body').toString()
-  }
 }
 
 const parseHtmlByPdf = (html) => {

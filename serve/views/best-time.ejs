@@ -1,0 +1,738 @@
+<style>
+    .classmate-title {
+        font-weight: bold;
+        font-size: 24px;
+        color: #000000;
+    }
+
+    .text {
+        font-weight: 400;
+        font-size: 18px;
+        color: #666666;
+    }
+
+    .classmate-item {
+        display: flex;
+    }
+
+    .classmate-item .left {
+        text-align: center;
+        border-radius: 8px;
+        padding: 5px 16px;
+        background-color: var(--primary-color);
+        color: #fff;
+        border-radius: 8px;
+    }
+
+    .classmate-item .right {
+        border: 1px solid var(--primary-color);
+        margin-left: -10px;
+        border-radius: 8px;
+        padding: 5px 16px;
+        color: #FF4F64;
+    }
+
+    .consider {
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .spring {
+        background-image: url('/images/spring.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .summer {
+        background-image: url('/images/summer.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .autumn {
+        background-image: url('/images/autumn.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .winter {
+        background-image: url('/images/winter.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .season-title {
+        text-align: center;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+    .season-second-title {
+        text-align: center;
+        padding: 5px 15px;
+        background-color: var(--primary-color);
+        border-radius: 20px;
+        font-weight: 500;
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+
+    .tips {
+        background: #F9F2FF;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .highlights-item {
+        margin-bottom: 1rem !important;
+
+        .header h4 {
+            background: var(--primary-color);
+            border-radius: 10px 10px 0px 0px;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .content {
+            background: #fff;
+            padding: 20px;
+            color: var(--primary-color);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 3;
+
+            li:before {
+                border: 5px solid var(--primary-color);
+                border-radius: 10px;
+                content: "";
+                display: inline-block;
+                height: 10px;
+                width: 10px;
+                margin-right: 20px;
+            }
+
+            li span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .months-tips {
+        .title {
+            font-weight: 500;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .summary {
+            padding: 10px 0px;
+            text-align: center;
+            background: #eee;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 18px;
+        }
+    }
+
+    .weather-difference {
+        background: var(--primary-color);
+        padding: 30px 0px;
+        color: #FFF;
+        text-align: center;
+
+        .title {
+            font-weight: bold;
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+
+        tbody {
+            color: var(--primary-color);
+        }
+
+        h3 {
+            text-align: left;
+            ont-weight: 500;
+            font-size: 20px;
+            color: #FFFFFF;
+        }
+
+        .item {
+            margin: 10px 0px;
+            padding: 10px;
+            border-radius: 10px;
+            color: #674786;
+            background-color: #F9F2FF;
+            text-align: left;
+            position: relative;
+        }
+
+        .item:before {
+            content: '';
+            background-image: url('/images/icons/ok.png');
+            position: absolute;
+            top: 7px;
+            width: 28px;
+            height: 26px;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        p {
+            padding-left: 40px;
+        }
+    }
+
+    .best-month {
+        .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        thead {
+            color: #fff;
+            background-color: var(--primary-color);
+        }
+
+        tbody {
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+    }
+
+    .faq {
+        .title {
+            font-weight: bold;
+            font-size: 24px;
+            color: #000000;
+        }
+    }
+</style>
+<body>
+    <%- header %>
+    <%- banner %>
+    <div class="page-wrapper">
+        <%- overView %>
+        <section class="pt-10 pb-10 bg-white">
+            <div class="container">
+                <div class="title-line text-center">
+                    <h2 class="classmate-title">Understanding Japan’s Climate and Seasons</h2>
+                </div>
+                <p>Japan’s climate varies significantly from north to south. Hokkaido in the north can be icy and snowy during winter, while Okinawa in the south is subtropical and mild year-round. The main islands—Honshu, Shikoku, and Kyushu—experience four distinct seasons: spring, summer, autumn, and winter.</p>
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div class="classmate-item">
+                            <div class="left">Spring</div>
+                            <div class="right">March–May</div>
+                        </div>
+                        <p class="my-2">Mild temperatures, cherry blossoms, and festivals.</p>
+                        <div class="classmate-item">
+                            <div class="left">Summer</div>
+                            <div class="right">June–August</div>
+                        </div>
+                        <p class="my-2">Hot and humid, with vibrant festivals and mountain hiking opportunities.</p>
+                        <div class="classmate-item">
+                            <div class="left">Autumn</div>
+                            <div class="right">September–November</div>
+                        </div>
+                        <p class="my-2">Comfortable weather, clear skies, and stunning fall foliage.</p>
+                        <div class="classmate-item">
+                            <div class="left">Winter</div>
+                            <div class="right">December–February</div>
+                        </div>
+                        <p class="my-2">Cold, snowy in the north, perfect for skiing, hot springs, and illuminations.</p>
+                        <p class="my-3 consider">There are also key seasonal events to consider.</p>
+                        <div class="classmate-item">
+                            <div class="left">Rainy season</div>
+                            <div class="right">tsuyu</div>
+                        </div>
+                        <p class="my-2">Mid-June to mid-July, mostly affecting central and southern Japan.</p>
+                        <div class="classmate-item">
+                            <div class="left">Typhoon season</div>
+                        </div>
+                        <p class="my-2">Late August to early October, mainly in southern coastal areas. Understanding these patterns will help you pick the best time to visit each region.</p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <img src="/images/japan-best-time.webp" class="mb-3">
+                        <aside class="blog-sidebar" id="gfa__make_inquiry_rt"><style>
+    .contact {
+        background: #FFFFFF;
+        box-shadow: 0px 0px 16px 0px rgba(82, 82, 82, 0.11);
+        border-radius: 10px;
+        padding: 20px 10px;
+    }
+
+    .contact-title {
+        font-weight: 500;
+        font-size: 18px;
+        color: #000000;
+        line-height: 24px;
+    }
+
+    .contact-info {
+        display: flex;
+        gap: 10px;
+    }
+
+    .contact-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+    }
+
+    .contact-text {
+        font-weight: 400;
+        font-size: 16px;
+        color: #666666;
+    }
+    </style>
+    <div class="contact gfa__sticky-item">
+    <h4 class="contact-title">Contact someone who's been there</h4>
+    <div class="contact-info">
+        <img class="contact-img" src="/images/team/Sun-Yifan.jpg">
+        <div class="text">
+            Start planning your tailor-made trip by contacting one of our travel expert
+        </div>
+    </div>
+    <div class="mt-3">
+        <a href="/tailor-make.html">
+            <button type="button" class="btn btn-theme"> Make an Inquiry</button>
+        </a>
+    </div>
+    </div></aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="spring">
+            <div class="container">
+                <h2 class="season-title py-3">Cherry Blossoms and Pleasant Weather</h2>
+                <h3 class="text-center">
+                    <span class="season-second-title">Spring (March–May)</span>
+                </h3>
+                <p>Spring is one of the most popular times for travelers to visit Japan. With mild temperatures and blooming flowers, it’s ideal for sightseeing, photography, and cultural experiences.</p>
+                <h3 class="text-center">
+                    <span class="season-second-title">Overview</span>
+                </h3>
+                <p class="text-center mb-2">Temperatures range from 10–20°C (50–68°F), depending on the region. Hokkaido is cooler, while the southern islands of Kyushu and Shikoku are warmer. Humidity is low, and rainfall is generally light, making it perfect for outdoor activities.</p>
+                <div class="tips">
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Highlights</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Cherry blossom season (sakura) — late March to early April in Tokyo and Kyoto; later in northern Japan.</li>
+                                <li>Festivals such as Hina Matsuri (Doll Festival) in March.</li>
+                                <li>Scenic walks in gardens, temples, and parks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Regional Tips</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li><span>Tokyo &amp; Kyoto：</span>Early April for peak blossoms.</li>
+                                <li><span>Northern Honshu &amp; Hokkaido：</span>Late April to May for delayed blooms.</li>
+                                <li><span>Okinawa：</span>Mild and sunny, perfect for beaches in April–May.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item">
+                        <div class="header">
+                            <h4>Travel Advice</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Book accommodations early; spring is peak tourist season.</li>
+                                <li>Pack a light jacket and layers — mornings can be cool.</li>
+                                <li>Use sunscreen; spring days can be bright.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="summer">
+            <div class="container">
+                <h2 class="season-title py-3">Festivals, Mountains, and Vibrant Energy</h2>
+                <h3 class="text-center">
+                    <span class="season-second-title">Summer (June–August)</span>
+                </h3>
+                <p>Summer in Japan is hot, humid, and full of energy. While some travelers avoid this season due to high temperatures, it’s ideal for festival lovers, hikers, and those seeking mountain escapes.</p>
+                <h3 class="text-center">
+                    <span class="season-second-title">Overview</span>
+                </h3>
+                <p class="text-center mb-2">Average daytime highs reach 30°C (86°F) or more, with high humidity. Rainy season occurs in mid-June to mid-July, and typhoons can affect southern regions later in summer.</p>
+                <div class="tips">
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Highlights</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Traditional summer festivals: Gion Matsuri in Kyoto, Nebuta Matsuri in Aomori.</li>
+                                <li>Fireworks displays across the country.</li>
+                                <li>Hiking in Hokkaido or the Japanese Alps for cooler temperatures.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Regional Tips</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li><span>Hokkaido：</span>Cool and comfortable, perfect for trekking and sightseeing.</li>
+                                <li><span>Tokyo &amp; Osaka：</span>Hot and humid; best for evening festival events.</li>
+                                <li><span>Tohoku &amp; Japanese Alps：</span>Pleasant summer weather, fewer crowds.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item">
+                        <div class="header">
+                            <h4>Travel Advice</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Wear breathable clothing and bring sunscreen and a compact umbrella.</li>
+                                <li>Stay hydrated; carry water when exploring cities.</li>
+                                <li>Mountain and northern regions are ideal for avoiding heat.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="autumn">
+            <div class="container">
+                <h2 class="season-title py-3">Fall Colors and Comfortable Weather</h2>
+                <h3 class="text-center">
+                    <span class="season-second-title">Autumn (September–November)</span>
+                </h3>
+                <p>Autumn is widely considered the best overall season to visit Japan. With crisp air, low humidity, and breathtaking autumn foliage, it’s ideal for cultural experiences and photography.</p>
+                <h3 class="text-center">
+                    <span class="season-second-title">Overview</span>
+                </h3>
+                <p class="text-center mb-2">Temperatures range from 15–25°C (59–77°F), depending on region. Skies are usually clear, and rainfall is lower than in summer.</p>
+                <div class="tips">
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Highlights</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Stunning fall foliage (koyo), particularly in Kyoto, Nikko, and Fuji Five Lakes.</li>
+                                <li>Cultural events such as harvest festivals.</li>
+                                <li>Crisp weather perfect for outdoor sightseeing and temple visits.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Regional Tips</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li><span>Tokyo &amp; Kyoto：</span>October–November for peak leaf colors.</li>
+                                <li><span>Hokkaido：</span>Early October for northern foliage.</li>
+                                <li><span>Tokyo &amp; Central Japan：</span>Late November for vibrant urban parks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item">
+                        <div class="header">
+                            <h4>Travel Advice</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Check foliage forecasts; peak colors vary by region and year.</li>
+                                <li>Pack layers; mornings and evenings can be chilly.</li>
+                                <li>Avoid early autumn if planning coastal travel during typhoon season.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="winter">
+            <div class="container">
+                <h2 class="season-title py-3">Snow, Hot Springs, and Holiday Charm</h2>
+                <h3 class="text-center">
+                    <span class="season-second-title">Winter (December–February)</span>
+                </h3>
+                <p>Winter in Japan offers a unique experience, from powdery snow in Hokkaido to cozy hot springs in mountainous regions.</p>
+                <h3 class="text-center">
+                    <span class="season-second-title">Overview</span>
+                </h3>
+                <p class="text-center mb-2">Cold and dry, with temperatures ranging from 0–10°C (32–50°F) in most regions. Northern Japan experiences heavy snowfall, while southern areas like Tokyo enjoy mild, sunny days.</p>
+                <div class="tips">
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Highlights</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Skiing and snowboarding in Hokkaido, Nagano, and Niigata.</li>
+                                <li>Sapporo Snow Festival in February.</li>
+                                <li>Hot spring (onsen) resorts for relaxation./li&gt;
+                                </li><li>Winter illuminations in major cities like Tokyo and Osaka./li&gt;
+                            </li></ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item mb-2">
+                        <div class="header">
+                            <h4>Regional Tips</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li><span>Tokyo &amp; Kyoto：</span>Perfect for winter sports; heavy snow common.</li>
+                                <li><span>Nagano &amp; Gifu：</span>Ski resorts and alpine scenery.</li>
+                                <li><span>Tokyo, Osaka, Fukuoka：</span>Mild winters, ideal for city exploration.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlights-item">
+                        <div class="header">
+                            <h4>Travel Advice</h4>
+                        </div>
+                        <div class="content">
+                            <ul>
+                                <li>Pack thermal layers, gloves, and waterproof shoes.</li>
+                                <li>Check snow and road conditions for rural travel.</li>
+                                <li>JR passes and regional rail passes are useful for winter trips.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- months %>
+        <div class="container months-tips">
+            <h3 class="title my-3">When Not to Visit Japan</h3>
+            <p class="mb-2">While Japan is beautiful in every season, some periods can be less ideal for travelers — especially for those from the U.S. and Europe who prefer mild weather and fewer crowds.</p>
+            <div class="highlights-item">
+                <div class="header">
+                    <h4>1. Golden Week (Late April – Early May)</h4>
+                </div>
+                <div class="bg-white px-2 py-2">
+                    <p>Japan’s busiest holiday period — trains, hotels, and attractions are extremely crowded. Consider visiting just before or after for a more relaxed experience.</p>
+                </div>
+            </div>
+            <div class="highlights-item">
+                <div class="header">
+                    <h4>2. Obon Festival (Mid-August)</h4>
+                </div>
+                <div class="bg-white px-2 py-2">
+                    <p>One of Japan’s most important holidays; expect packed trains and limited accommodation. Book well in advance if attending festival events.</p>
+                </div>
+            </div>
+            <div class="highlights-item">
+                <div class="header">
+                    <h4>3. Typhoon Season (Late August – Early October)</h4>
+                </div>
+                <div class="bg-white px-2 py-2">
+                    <p>Typhoons can disrupt travel, especially in southern regions like Okinawa and Kyushu. Stay flexible and monitor local forecasts.</p>
+                </div>
+            </div>
+            <div class="highlights-item">
+                <div class="header">
+                    <h4>4. Peak Summer Heat (August)</h4>
+                </div>
+                <div class="bg-white px-2 py-2">
+                    <p>High temperatures and humidity make outdoor sightseeing challenging. Mountain destinations are preferable during this period.</p>
+                </div>
+            </div>
+            <div class="summary">
+                <p>Outside these peak times, Japan offers incredible experiences all year round.</p>
+            </div>
+        </div>
+        <div class="weather-difference my-3">
+            <div class="container">
+                <h2 class="title mb-3">Regional Weather Differences</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Climate Summary</th>
+                            <th>Best Season</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr>
+                            <td>Hokkaido (North)</td>
+                            <td>Cold, snowy winters; cool, dry summers</td>
+                            <td>June–August, December– February</td>
+                        </tr>
+                        <tr>
+                            <td>Tokyo & Central Japan</td>
+                            <td>Four distinct seasons</td>
+                            <td>March–May, October–November</td>
+                        </tr>
+                        <tr>
+                            <td>Kansai (Kyoto, Osaka)</td>
+                            <td>Hot summers, mild winters</td>
+                            <td>April–May, October–November</td>
+                        </tr>
+                        <tr>
+                            <td>Okinawa (South)</td>
+                            <td>Tropical, warm year-round</td>
+                            <td>March–June, October–November</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Travel Tips for American & European Visitors</h3>
+                <div class="item">
+                    <p><span>Flights & Scheduling:</span> Spring and autumn offer the best weather and balanced airfare.</p>
+                </div>
+                <div class="item">
+                    <p><span>Jet Lag:</span> Japan is 8–9 hours ahead of Europe and 13–16 hours ahead of U.S. time zones. Plan a rest day on arrival.</p>
+                </div>
+                <div class="item">
+                    <p><span>Cultural Timing:</span> Avoid Golden Week for fewer crowds and better hotel availability.</p>
+                </div>
+                <div class="item">
+                    <p><span>Packing:</span> Layering is essential; summer humidity and winter cold require different gear.</p>
+                </div>
+                <div class="item">
+                    <p><span>Festivals & Experiences:</span> Book ahead for cherry blossom season, Gion Matsuri, or Obon events.</p>
+                </div>
+            </div>
+        </div>
+        <div class="best-month py-3">
+            <div class="container">
+                <h2 class="title mb-3">Quick Reference: Best Months to Visit Japan</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Season</th>
+                                <th>Highlights</th>
+                                <th>Recommended For</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td>March–April</td>
+                                <td>Spring</td>
+                                <td>Cherry blossoms, mild weather</td>
+                                <td>First-time visitors</td>
+                            </tr>
+                            <tr>
+                                <td>May–June</td>
+                                <td>Early Summer</td>
+                                <td>Green landscapes, fewer crowds</td>
+                                <td>Nature lovers</td>
+                            </tr>
+                            <tr>
+                                <td>July–August</td>
+                                <td>Summer</td>
+                                <td>Festivals, fireworks, mountains</td>
+                                <td>Adventure travelers</td>
+                            </tr>
+                            <tr>
+                                <td>September–November</td>
+                                <td>Autumn</td>
+                                <td>Fall foliage, temples</td>
+                                <td>Culture seekers</td>
+                            </tr>
+                            <tr>
+                                <td>December–February</td>
+                                <td>Winter</td>
+                                <td>Snow, onsen, illuminations</td>
+                                <td>Skiers, winter lovers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-left">
+                    <h3>Plan Your Japan Adventurers</h3>
+                    <p>Ready to experience Japan at its best? Whether you dream of cherry blossoms in spring, colorful autumn leaves, or snowy winter landscapes, we can help you create a tailor-made itinerary that fits your travel dates and interests. From comfortable city stays to scenic countryside explo-rations, our expert guides ensure a seamless and memorable journey.</p>
+                    <p>Explore our Japan tour packages designed specifically for travelers from the U.S. and Europe, and start planning your perfect Japan adventure today.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="container">
+                <h2 class="title text-center">Frequently Asked Questions (FAQ) About the Best Time to Visit Japan</h2>
+                <div class="highlights-item">
+                    <div class="header">
+                        <h4>1. When is the best time to visit Japan?</h4>
+                    </div>
+                    <div class="bg-white px-2 py-2">
+                        <p>The best time is generally <b>spring (March–April)</b> for cherry blossoms and <b>autumn (October–November)</b> for fall foliage. These seasons offer mild weather, beautiful scenery, and manageable crowds.</p>
+                    </div>
+                </div>
+                <div class="highlights-item">
+                    <div class="header">
+                        <h4>2. Is summer a good time to travel to Japan?</h4>
+                    </div>
+                    <div class="bg-white px-2 py-2">
+                        <p>Summer can be hot and humid, with temperatures often above 30°C (86°F). However, it’s perfect for <b>festivals, fireworks, and mountain trekking</b>  in Hokkaido and the Japanese Alps.</p>
+                    </div>
+                </div>
+                <div class="highlights-item">
+                    <div class="header">
+                        <h4>3. When should I avoid visiting Japan?</h4>
+                    </div>
+                    <div class="bg-white px-2 py-2">
+                        <p>Avoid <b>Golden Week (late April–early May), Obon Festival (mid-August)</b>, and <b>typhoon season (late August–early October)</b> if you want to avoid crowds, higher prices, or weather disruptions.</p>
+                    </div>
+                </div>
+                <div class="highlights-item">
+                    <div class="header">
+                        <h4>4. How long should I plan to stay in Japan?</h4>
+                    </div>
+                    <div class="bg-white px-2 py-2">
+                        <p>For travelers from the U.S. or Europe, a <b>10–14 day</b> is ideal to explore multiple regions comfortably.</p>
+                    </div>
+                </div>
+                <div class="highlights-item">
+                    <div class="header">
+                        <h4>5. Does Japan experience extreme weather?</h4>
+                    </div>
+                    <div class="bg-white px-2 py-2">
+                        <p>Japan has <b>hot summers, cold winters, and occasional typhoons</b>  in late summer. Spring and autumn offer the most comfortable condi-tions for sightseeing.</p>
+                    </div>
+                </div>
+                <div class="highlights-item">
+                    <div class="header">
+                        <h4>6. Can I see cherry blossoms outside Tokyo and Kyoto?</h4>
+                    </div>
+                    <div class="bg-white px-2 py-2">
+                        <p>Yes! Northern Japan (Tohoku and Hokkaido) blooms <b>later in April and May</b>, while southern islands like Okinawa have mild flowers earlier in the year.</p>
+                    </div>
+                </div>
+                <div class="highlights-item">
+                    <div class="header">
+                        <h4>7. Are winter activities in Japan worth it?</h4>
+                    </div>
+                    <div class="bg-white px-2 py-2">
+                        <p>Absolutely. Northern regions like <b>Hokkaido and Nagano</b> offer world-class skiing and snowboarding. Hot springs (onsen) and winter illu-minations are also popular across Japan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- promoted %>
+        <section id="gfa__make_inquiry-b"></section>
+        <section id="gfa__whyus" class="jumbotron jumbotron-fluid mb-0"></section>
+        <div id="gfa__footer"></div>
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a>
+</body>
