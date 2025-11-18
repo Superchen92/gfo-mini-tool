@@ -1,7 +1,12 @@
 <template>
   <q-page padding>
     <SearchHeader v-model="url" type="best-time" @search-result="handleSearchResult" />
-    <q-editor class="q-mt-md" v-model="html" :toolbar="[['viewsource']]" />
+    <q-editor
+      class="q-mt-md"
+      v-model="html"
+      :toolbar="[['viewsource', 'link', 'bold']]"
+      max-height="700px"
+    />
     <q-page-sticky expand position="bottom">
       <div class="bg-white row justify-end q-pa-xs" style="width: 100%">
         <div class="col-1">
@@ -18,7 +23,7 @@ import { ref } from 'vue'
 import SearchHeader from '@/components/SearchHeader.vue'
 
 const html = ref('')
-const url = ref('')
+const url = ref('/thailand-guide/best-time.html')
 const $q = useQuasar()
 
 const handleSearchResult = (data) => {
