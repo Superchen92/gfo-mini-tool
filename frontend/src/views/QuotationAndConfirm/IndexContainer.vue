@@ -33,7 +33,7 @@
 
 <script setup>
 import { computed, reactive, ref } from 'vue'
-import { useQuasar } from 'quasar'
+import { SessionStorage, useQuasar } from 'quasar'
 import QuotationPage from './QuotationPage.vue'
 import ConfirmPage from './ConfirmPage.vue'
 import { parse } from 'node-html-parser'
@@ -101,6 +101,7 @@ const handleSave = () => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + SessionStorage.getItem('token'),
     },
     body: JSON.stringify({ filename: url.value, ...htmlElement }),
   })

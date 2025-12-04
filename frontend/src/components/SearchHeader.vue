@@ -13,7 +13,7 @@
 
 <script setup>
 import { defineModel } from 'vue'
-import { useQuasar } from 'quasar'
+import { useQuasar, SessionStorage } from 'quasar'
 
 const url = defineModel({
   type: String,
@@ -38,6 +38,7 @@ const getPageHtml = () => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + SessionStorage.getItem('token'),
     },
     body: JSON.stringify({
       url: url.value,
