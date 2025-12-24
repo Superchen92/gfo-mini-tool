@@ -24,7 +24,6 @@ import LoginForm from './components/LoginForm.vue'
 
 const router = useRouter()
 const $q = useQuasar()
-console.log(SessionStorage)
 if (!SessionStorage.getItem('token')) {
   $q.dialog({
     component: LoginForm,

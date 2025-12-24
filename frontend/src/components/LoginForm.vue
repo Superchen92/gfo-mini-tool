@@ -27,7 +27,7 @@ defineEmits([...useDialogPluginComponent.emits])
 const { dialogRef, onDialogOK, onDialogHide } = useDialogPluginComponent()
 const user = reactive({
   name: 'admin',
-  password: '123456',
+  password: '',
 })
 
 const handleOkClick = () => {
