@@ -21,7 +21,7 @@ router.post('/save-files/pdf',authenticateToken, pdfController.saveFilesByPdf);
 router.post('/login', function(req, res, next) {
   const { name, password } = req.body;
   if (name === 'admin' && password === '123456') {
-    const token = jwt.sign({ name }, 'secret', { expiresIn: '1h' });
+    const token = jwt.sign({ name }, 'secret', { expiresIn: '7d' });
     res.json({ token });
   } else {
     res.status(401).json({ message: 'Invalid credentials' });
